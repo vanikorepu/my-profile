@@ -1,0 +1,31 @@
+.about {
+  background: #1a0030;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff5cff;
+  margin-bottom: 1.5rem;
+}
+
+.about p {
+  max-width: 600px;
+  margin: auto;
+  color: #ccc;
+}
+
+section {
+  width: 100%;
+  padding: 4rem 8%;
+}
