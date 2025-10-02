@@ -1,15 +1,72 @@
 .work {
-  background: #0f001f;
-  color: white;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
+  background: transparent;
+  color: #333;
   text-align: center;
 }
 
 .work h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 3rem;
+  margin-bottom: 3.5rem;
+  font-weight: 700;
 }
-section {
-  width: 100%;
-  padding: 4rem 8%;
+
+/* Bigger grid */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  max-width: 1400px;   /* extra wide */
+  margin: 0 auto;
+}
+
+/* Super-sized cards */
+.work-card {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 3rem;        /* more breathing room */
+  text-align: left;
+  min-height: 380px;    /* taller cards */
+  box-shadow: 0 8px 35px rgba(0,0,0,0.15);
+  font-size: 1.2rem;    /* body text bigger */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+}
+
+.work-card h3 {
+  font-size: 1.9rem;   /* much bigger title */
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.work-card p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #444;
+}
+
+.work-card .date {
+  font-size: 1.1rem;
+  color: #8e44ad;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+  .work-card {
+    padding: 2.2rem;
+    min-height: auto;
+    font-size: 1.05rem;
+  }
+  .work-card h3 {
+    font-size: 1.6rem;
+  }
 }

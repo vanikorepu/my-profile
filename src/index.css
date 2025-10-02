@@ -21,23 +21,48 @@ a {
 a:hover {
   color: #535bf2;
 }
-
-html, body {
+html {
+  scroll-behavior: smooth;
+}
+body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  min-height: 100%;
-  overflow-x: hidden; /* prevents scrollbars */
+  background: radial-gradient(circle at top left, #ffe1ff, #d6a8ff, #8e44ad);
+  background-attachment: fixed; /* seamless gradient */
 }
-
+/* make all the text color in all sections #333 */
 body {
-  display: block; /* remove flex centering */
+  color: #333;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+* {
+  font-family: 'Space Grotesk', sans-serif !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* Reset basics */
+
+/* Default text color */
+body, p, h1, h2, h3, h4, h5, h6, span, li {
+  color: #333;
+}
+
+
+/* Example heading style */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.5px; /* gives Patti’s tighter look */
+}
+
+/* Example navbar refinement */
+.navbar {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+
 
 button {
   border-radius: 8px;
@@ -50,6 +75,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
