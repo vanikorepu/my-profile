@@ -9,12 +9,15 @@ export default function Hero() {
         {/* Left: Text */}
         <div className="hero-text">
           <h1>
-            Hiya, I’m <span className="highlight">Vani!</span>
+            Hiya, I’m <span className="highlight">Vani!
+              Here, you can check out what I'm working on. I try my best to create things with ❤
+            </span>
           </h1>
           <p className="tagline">
             A coffee-fueled frontend engineer. <br />
             Research Engineer @ Gen AI Global. <br />
             CS Grad @ UMass Amherst.
+            
           </p>
 
           <p className="location">📍 Based in Massachusetts, USA</p>

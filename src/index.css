@@ -27,7 +27,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top left, #ffe1ff, #d6a8ff, #8e44ad);
+  /* make the background radial gradient of laevnder powder blue turqoise */
+
+  background: radial-gradient(circle at top left, #d0bbff, #b2f7ff, #6efff6);
   background-attachment: fixed; /* seamless gradient */
 }
 /* make all the text color in all sections #333 */
