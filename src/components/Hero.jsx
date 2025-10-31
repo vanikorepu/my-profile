@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="hero-text">
           <h1>
             Hiya, I’m <span className="highlight">Vani!
-              Here, you can check out what I'm working on. I try my best to create things with ❤
+              Here, you can check out what I'm working on
             </span>
           </h1>
           <p className="tagline">

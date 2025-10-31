@@ -4,61 +4,74 @@ export default function Work() {
   return (
     <>
       {/* Work Section */}
-      <section id="work" className="work">
+      <section id="work" className="work" aria-label="Professional experience">
         <h2>My Work</h2>
         <div className="work-grid">
-          <div className="work-card">
-            <h3>🚀 Libraries, but Make It Cool</h3>
+          <article className="work-card">
+            <h3>Gen AI Global - Training Lead</h3>
             <p>
-              Rebuilt UMass Digital Media Lab’s site → tripled student traffic,
-              added SEO sparkle, and made Lighthouse very, very happy.
+              Lead on the <strong>AI 2027</strong> initiative, translating AI-safety 
+              research into agentic workflows. Designed training pipelines and evaluation 
+              frameworks for large models, bridging technical, policy, and human-factors teams to make AI 
+              systems safer and more transparent.
+            </p>
+            <span className="date">2025 - Present</span>
+          </article>
+
+          <article className="work-card">
+            <h3>UMass Libraries - Software Engineer</h3>
+            <p>
+              Rebuilt the Digital Media Lab site and made it useful again:
+              tripled student traffic, drove 500+ sign-ups, and improved mobile
+              accessibility scores by 25%. Added SEO + analytics so outreach
+              decisions weren’t guesses.
             </p>
             <span className="date">2024–2025</span>
-          </div>
+          </article>
 
-          <div className="work-card">
-            <h3>📊 CRMs & Chaos</h3>
+          <article className="work-card">
+            <h3>Kanor Systems - Frontend Developer</h3>
             <p>
-              At Kanor Systems, I wrestled with Zoho dashboards and won. Reduced
-              form fatigue, sped up registrations, and made data pretty.
+              Simplified enterprise registration and CRM dashboards for 2,500+
+              clients. Cut form completion time by 15%. Built Looker reports and
+              extended Zoho CRM to monitor 500+ accounts, helping increase
+              sign-ups by 20% and retention by 15%.
             </p>
             <span className="date">2022–2023</span>
-          </div>
+          </article>
 
-          <div className="work-card">
-            <h3>🛒 Checkout Glow-Up</h3>
+          <article className="work-card">
+            <h3>Havish Tech - Software Developer</h3>
             <p>
-              Designed storefronts at Havish Tech — fewer abandoned carts, more
-              happy customers. Call-to-action buttons, but with ✨vibes✨.
+              Redesigned React storefronts: 18% fewer abandoned carts, 22% longer
+              sessions. A/B tests on CTAs and checkout removed friction and lifted
+              conversions by 15%.
             </p>
             <span className="date">2021–2022</span>
-          </div>
+          </article>
 
-          <div className="work-card">
-            <h3>🧪 Playing with AI & Politics</h3>
+          <article className="work-card">
+            <h3>Holdorf Press, Inc. - Website Admin Manager</h3>
             <p>
-              Research assistant days: built text analysis pipelines for 500+
-              political docs, mixed LLMs with stats, and turned research chaos
-              into dashboards.
+              Maintained and optimized WordPress sites for 50+ authors. Improved
+              site speed by 30% through image optimization and caching, leading to
+              better user experience and SEO rankings.
             </p>
-            <span className="date">2025</span>
-          </div>
+            <span className="date">2025–Present</span>
+          </article>
         </div>
       </section>
 
       {/* Passion Projects Section */}
-      <section id="projects" className="work">
+      <section id="projects" className="work" aria-label="Personal projects">
         <h2>💜 My Passion Projects 💜</h2>
         <div className="work-grid">
-          <div className="work-card">
+          <article className="work-card">
             <h3>🥋 MMA Connect</h3>
             <p>
-              A next-gen platform reimagining combat sports as a <strong>safe,
-                inclusive, and empowering space</strong>. Designed with a glassmorphic
-              UI, MMA Connect verifies gyms, highlights women-led training, and
-              hosts a Substack-style community where beginners feel supported.
-              Sponsors can back fighters directly, bridging <strong>local trust and
-                global visibility</strong>.
+              A platform for safer, verified combat-sports communities. Highlighted
+              women-led training, verified gyms, and a Substack-style feed for
+              events and sponsors. <strong>Goal:</strong> trust + discovery without the noise.
             </p>
             <p>
               👉{" "}
@@ -79,44 +92,46 @@ export default function Work() {
               </a>
             </p>
             <span className="date">2025–Present</span>
-          </div>
+          </article>
 
-          <div className="work-card">
+          <article className="work-card">
             <h3>🌸 Sayayam</h3>
             <p>
-              An anonymous web app helping international & neurodivergent women
-              navigate reproductive healthcare. Features plain-language guides,
-              safety tools, and calming 3D scapes.
+              Anonymous guides for international & neurodivergent women navigating
+              reproductive healthcare. Plain-language content, privacy-first flows,
+              and calming UIs to reduce decision fatigue.
             </p>
             <span className="date">2025–Present</span>
-          </div>
+          </article>
 
-          <div className="work-card">
+          <article className="work-card">
             <h3>🎡 Rolodex™️</h3>
             <p>
-              A hyperlocal social app that replaces swipes with weekly hangout
-              ideas. Spin the wheel, meet new people, eat pizza, repeat.
+              Hyperlocal social without swipes: weekly hangout prompts, small
+              groups, and opt-in circles. Built to encourage real-world plans,
+              not endless scrolling.
             </p>
             <span className="date">2025–Present</span>
-          </div>
+          </article>
 
-          <div className="work-card">
+          <article className="work-card">
             <h3>🗺️ New Horizons</h3>
             <p>
-              Reimagined social media to revive community “third spaces.”
-              Map-based discovery + location engine boosted engagement by 33%.
+              Map-first discovery for “third spaces.” Next.js + dynamic filters
+              sped up geo searches by ~70% and cut bounce by 20% on low-end
+              devices (code-splitting, lazy loading, image compression).
             </p>
             <span className="date">2024</span>
-          </div>
+          </article>
 
-          <div className="work-card">
+          <article className="work-card">
             <h3>💡 Mercury</h3>
             <p>
-              Built a mobile app + wearable with Arduino sensors to provide
-              moral support through heartbeat & breathing feedback.
+              Mobile + wearable (Arduino sensors) for gentle biofeedback. Heartbeat
+              and breathing cues designed for calm, not notifications.
             </p>
             <span className="date">2020</span>
-          </div>
+          </article>
         </div>
       </section>
     </>
