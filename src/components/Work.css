@@ -1,72 +1,92 @@
+/* ===== Work.css (standard cards for Experience + Projects) ===== */
+
+/* Section wrapper */
 .work {
-  padding: 5rem 2rem;
-  background: transparent;
-  color: #333;
-  text-align: center;
-}
-
-.work h2 {
-  font-size: 3rem;
-  margin-bottom: 3.5rem;
-  font-weight: 700;
-}
-
-/* Bigger grid */
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  max-width: 1400px;   /* extra wide */
+  padding: 64px 20px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Super-sized cards */
+/* Section title */
+.work > h2 {
+  text-align: center;
+  font-size: clamp(1.9rem, 2vw + 1rem, 2.6rem);
+  margin-bottom: 28px;
+}
+
+/* Grid */
+.work-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* Card */
 .work-card {
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
-  padding: 3rem;        /* more breathing room */
-  text-align: left;
-  min-height: 380px;    /* taller cards */
-  box-shadow: 0 8px 35px rgba(0,0,0,0.15);
-  font-size: 1.2rem;    /* body text bigger */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--card-bg, #fffdf6);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;       /* puts .date at the bottom */
+  min-height: 230px;                    /* equal-ish heights */
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
 .work-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.12);
 }
 
+/* Headline */
 .work-card h3 {
-  font-size: 1.9rem;   /* much bigger title */
-  margin-bottom: 1.2rem;
-  font-weight: 700;
+  margin: 0 0 8px 0;
+  font-size: clamp(1.05rem, 0.9rem + 0.7vw, 1.45rem);
+  line-height: 1.25;
+  color: var(--text-color, #1A1A1A);
 }
 
+/* Body copy */
 .work-card p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  margin-bottom: 2rem;
-  color: #444;
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-color, #1A1A1A);
 }
 
+/* Inline links inside cards */
+.work-card a {
+  color: var(--accent-color, #E46E2E);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(228,110,46,0.3);
+  padding-bottom: 1px;
+  transition: color .15s ease, border-color .15s ease;
+}
+.work-card a:hover {
+  color: var(--text-color, #1A1A1A);
+  border-bottom-color: rgba(26,26,26,0.35);
+}
+
+/* Date (bottom-left) */
 .work-card .date {
-  font-size: 1.1rem;
-  color: #8e44ad;
+  margin-top: 12px;
+  font-size: 0.95rem;
   font-weight: 600;
+  color: #7b4e16; /* warm ink tone */
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .work-grid {
-    grid-template-columns: 1fr;
-  }
-  .work-card {
-    padding: 2.2rem;
-    min-height: auto;
-    font-size: 1.05rem;
-  }
-  .work-card h3 {
-    font-size: 1.6rem;
-  }
+/* Accessibility focus */
+.work-card:focus-within,
+.work-card:focus-visible {
+  outline: 2px solid rgba(228,110,46,0.5);
+  outline-offset: 2px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 560px) {
+  .work { padding: 48px 16px; }
+  .work-card { padding: 18px; border-radius: 16px; }
 }

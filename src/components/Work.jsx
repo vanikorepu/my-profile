@@ -64,7 +64,7 @@ export default function Work() {
 
       {/* Passion Projects Section */}
       <section id="projects" className="work" aria-label="Personal projects">
-        <h2>💜 My Passion Projects 💜</h2>
+        <h2>My Passion Projects</h2>
         <div className="work-grid">
           <article className="work-card">
             <h3>🥋 MMA Connect</h3>
@@ -101,6 +101,24 @@ export default function Work() {
               reproductive healthcare. Plain-language content, privacy-first flows,
               and calming UIs to reduce decision fatigue.
             </p>
+            <p>
+              👉{" "}
+              <a
+                href="https://mma-connect.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Demo
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://github.com/vanikorepu/mma-connect"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </p>
             <span className="date">2025–Present</span>
           </article>
 
@@ -110,6 +128,24 @@ export default function Work() {
               Hyperlocal social without swipes: weekly hangout prompts, small
               groups, and opt-in circles. Built to encourage real-world plans,
               not endless scrolling.
+            </p>
+            <p>
+              👉{" "}
+              <a
+                href="https://mma-connect.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Demo
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://github.com/vanikorepu/mma-connect"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
             </p>
             <span className="date">2025–Present</span>
           </article>
@@ -121,6 +157,24 @@ export default function Work() {
               sped up geo searches by ~70% and cut bounce by 20% on low-end
               devices (code-splitting, lazy loading, image compression).
             </p>
+            <p>
+              👉{" "}
+              <a
+                href="https://mma-connect.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Demo
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://github.com/vanikorepu/mma-connect"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </p>
             <span className="date">2024</span>
           </article>
 
@@ -129,6 +183,24 @@ export default function Work() {
             <p>
               Mobile + wearable (Arduino sensors) for gentle biofeedback. Heartbeat
               and breathing cues designed for calm, not notifications.
+            </p>
+            <p>
+              👉{" "}
+              <a
+                href="https://mma-connect.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Demo
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://github.com/vanikorepu/mma-connect"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
             </p>
             <span className="date">2020</span>
           </article>

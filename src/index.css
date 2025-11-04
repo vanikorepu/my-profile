@@ -1,100 +1,202 @@
+/* 1) Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --font-body: 'Work Sans', sans-serif;
+}
+/* ensure html/body use it */
+html, body, #root{ font-family: var(--font-body); }
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --bg-color: #FFFBEA;         /* warm cream */
+  --text-color: #1A1A1A;       /* charcoal */
+  --accent-color: #E46E2E;     /* burnt orange */
+  --muted-color: #5E5E5E;      /* warm gray */
+  --card-bg: #ffffffc8;        /* soft paper card */
+  --rule: rgba(0,0,0,0.08);
+}
+/* Work Sans already imported? keep it. Otherwise: */
+/* @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap'); */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+:root{
+  --font-body: 'Work Sans', sans-serif;
+  --ink: #1A1A1A;
 
-  font-synthesis: none;
+  /* Palette (already using similar) */
+  --bg: #FFFBEA;          /* page base */
+  --pink: #f8d6e2;        /* hero/section header */
+  --butter: #fff5c7;      /* content paper */
+  --accent: #E46E2E;
+
+  /* Type scale */
+  --fs-hero: clamp(2rem, 3.2vw + 1rem, 3rem);
+  --fs-h2:   clamp(1.6rem, 2.2vw + .8rem, 2.2rem);
+  --fs-h3:   1.25rem;
+  --fs-body: 1rem;
+
+  /* Rhythm */
+  --lh-body: 1.7;
+  --section-y: 64px;      /* default vertical spacing */
+}
+
+html, body, #root{
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: var(--lh-body);
+}
+
+/* Headings (reuse everywhere) */
+.section-title{
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.section-kicker{
+  font-size: 1rem;
+  opacity: .85;
+  text-align: center;
+  margin: 0 auto 28px;
+  max-width: 720px;
+}
+/* Reusable section header with pink->butter fade */
+.section-hero {
+  background: linear-gradient(to bottom, var(--pink) 65%, var(--butter) 100%);
+  padding: 48px 20px 28px;                 /* same tight hero as Contact */
+  text-align: center;
+  margin: 0;
+}
+
+.section-hero h2{
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: -0.4px;
+}
+.section-hero p{
+  font-size: clamp(1rem, .9vw + .8rem, 1.25rem);
+  margin: 0;
+  opacity: .9;
+}
+
+/* Section body wrapper on butter “paper” */
+.section-body{
+  background: var(--butter);
+  padding: 32px 20px var(--section-y);
+}
+/* 3) Global resets + base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* IMPORTANT: remove any global !important font that was overriding things */
+html, body, #root {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Base typography */
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Headings use the display serif */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Work Sans', sans-serif;
+  color: var(--text-color);
+  margin: 0.6em 0 0.4em;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+/* Paragraphs and common text */
+p, li, span {
+  color: var(--text-color);
+}
+
+/* Links (burnt orange, invert on hover) */
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color .2s ease-in-out, box-shadow .2s ease-in-out;
 }
-a:hover {
-  color: #535bf2;
-}
-html {
-  scroll-behavior: smooth;
-}
-body {
-  margin: 0;
-  padding: 0;
-  /* make the background radial gradient of laevnder powder blue turqoise */
-
-  background: radial-gradient(circle at top left, #d0bbff, #b2f7ff, #6efff6);
-  background-attachment: fixed; /* seamless gradient */
-}
-/* make all the text color in all sections #333 */
-body {
-  color: #333;
+a:hover, a:focus {
+  color: var(--text-color);
+  box-shadow: inset 0 -0.12em 0 rgba(228,110,46,0.25);
 }
 
-* {
-  font-family: 'Space Grotesk', sans-serif !important;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Buttons (simple, bookish) */
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.6em 1.1em;
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: transform .05s ease, box-shadow .15s ease;
+}
+button:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+button:active { transform: translateY(1px); }
+
+/* Cards / sections */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1rem auto;
+  max-width: 760px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* Reset basics */
-
-/* Default text color */
-body, p, h1, h2, h3, h4, h5, h6, span, li {
-  color: #333;
+/* Subtle rules between blocks for the newspaper feel */
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2rem 0;
 }
 
+/* Optional: soft paper grain (feel free to remove if you don’t want it)
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+} */
 
-/* Example heading style */
-h1, h2, h3, h4 {
-  font-weight: 600;
-  letter-spacing: -0.5px; /* gives Patti’s tighter look */
-}
-
-/* Example navbar refinement */
+/* Navbar sample (if you use .navbar) */
 .navbar {
   font-weight: 500;
   font-size: 0.95rem;
 }
 
+/* Utilities */
+.read-the-docs { color: var(--muted-color); }
 
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .card { padding: 1.5rem; margin: 1rem; }
 }

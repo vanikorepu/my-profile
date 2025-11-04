@@ -1,0 +1,202 @@
+/* ===== Retro Vertical Timeline ===== */
+
+.tl {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 20px;
+}
+
+.tl > h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: clamp(1.9rem, 2vw + 1rem, 2.6rem);
+}
+
+/* Ordered list as vertical rail */
+.tl-list {
+  list-style: none;
+  position: relative;
+  padding-left: 24px;   /* room for rail on mobile */
+  margin: 0;
+}
+
+/* Single item row */
+.tl-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr; /* left rail / right card */
+  gap: 18px;
+  align-items: start;
+  margin: 0 0 48px 0;
+}
+
+/* The spine (dashed line) */
+.tl-spine {
+  position: absolute;
+  left: 26px;
+  top: 0;
+  bottom: -22px; /* extend to next card */
+  width: 0;
+  border-left: 2px dashed rgba(0,0,0,0.18);
+}
+
+/* The node: a small disc with a subtle ring */
+.tl-node {
+  grid-column: 1 / 2;
+  width: 56px;
+  height: 56px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.tl-node::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-color, #E46E2E);
+  box-shadow:
+    0 0 0 6px rgba(228,110,46,0.12),   /* ink ring */
+    0 4px 10px rgba(0,0,0,0.08);       /* soft drop */
+  display: block;
+}
+
+/* Little “stamp” number for retro feel */
+.tl-stamp {
+  position: absolute;
+  top: -8px;
+  left: 22px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  background: #1A1A1A;
+  border-radius: 10px;
+  padding: 2px 6px;
+  transform: rotate(-3deg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* The card (paper) */
+.tl-card {
+  grid-column: 2 / 3;
+  background: var(--card-bg, #fffdf6);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+/* Typewriter date tab */
+.tl-date {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #7b4e16;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Header layout */
+.tl-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.tl-title {
+  font-size: clamp(1.05rem, 0.9rem + 0.7vw, 1.4rem);
+  margin: 0;
+}
+.tl-title .sep { opacity: 0.55; }
+
+/* Blurb copy */
+.tl-blurb {
+  margin: 4px 0 2px;
+  line-height: 1.65;
+}
+
+/* Hover micro-motion */
+.tl-card:hover {
+  transform: translateY(-1px);
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.12);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .tl-item {
+    grid-template-columns: 40px 1fr;
+  }
+  .tl-node { width: 40px; height: 40px; }
+  .tl-node::before { width: 14px; height: 14px; }
+  .tl-stamp { top: -10px; left: 12px; transform: rotate(-4deg); }
+}
+
+/* Keep your existing timeline layout rules.
+   These additions only change the card's visual style to match .outline-btn */
+
+/* Preserve your card’s original spacing */
+.tl-card {
+  background: transparent;
+  padding: 16px 18px;   /* matches compact spacing used on Contact */
+  border-radius: 12px;  /* base radius; .outline-card will override to 14px */
+}
+
+/* --- Paper-pill outline style (same recipe as Contact .outline-btn) --- */
+.outline-card {
+  background: transparent;
+  color: var(--ink, #1A1A1A);
+  border: 2px solid rgba(0,0,0,.7);
+  border-radius: 14px;
+  box-shadow: 0 2px 0 rgba(0,0,0,.6);
+  transition: transform .05s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.outline-card:hover {
+  background: rgba(255,255,255,.45);
+  box-shadow: 0 6px 0 rgba(0,0,0,.5);
+  transform: translateY(-2px);
+}
+
+.outline-card:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 0 rgba(0,0,0,.6);
+}
+
+/* Typography harmony with your site */
+.tl-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.2px;
+  margin: 2px 0 6px;
+}
+
+.tl-date {
+  font-size: .92rem;
+  opacity: .75;
+}
+
+.tl-blurb {
+  font-size: .98rem;
+  line-height: 1.6;
+  margin: 6px 0 2px;
+}
+
+/* Optional tiny accent bar on the left (toggle on if you like) */
+/*
+.outline-card { position: relative; }
+.outline-card::before {
+  content: "";
+  position: absolute;
+  left: -2px; top: 10px; bottom: 10px;
+  width: 4px; border-radius: 4px;
+  background: var(--accent, #E46E2E); opacity: .85;
+}
+*/

@@ -1,122 +1,156 @@
-.contact-full {
-  min-height: 100vh; /* full page */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem 10%;
-  /* background: radial-gradient(circle at top left, #ffe1ff, #d6a8ff, #8e44ad); */
-  color: #333;
+/* Palette + vars (uses your global text/accent if present) */
+:root {
+  --contact-hero: #f8d6e2;   /* soft pink */
+  --contact-paper: #fff5c7;  /* buttercream */
+  --ink: var(--text-color, #1A1A1A);
+  --accent: var(--accent-color, #E46E2E);
 }
 
-/* Left text */
-.contact-left {
-  flex: 1;
-  align-items: flex-start;
-  text-align: left;
+/* Section base */
+#contact {
+  padding: 0;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-body, 'Work Sans', sans-serif);
+}
+#contact {
+  margin: 0;
+  padding: 0;
 }
 
-.contact-heading {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
 
-.contact-sub {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.contact-email {
-  font-size: 1.1rem;
-  display: flex;
-  gap: 0.5rem;
-}
-
-.contact-email a {
-  color: #333;
-  display: flex;
-  text-decoration: underline;
-  font-size: 1.1rem;
-  gap: 0.5rem;;
-}
-
-/* Right box */
-.contact-right {
-  background: rgba(255, 255, 255, 0.4);
-  padding: 2rem;
-  border-radius: 20px;
+/* ===== Hero (pink) with subtle fade into paper ===== */
+.contact-hero {
+  background: linear-gradient(
+    to bottom,
+    var(--contact-hero) 80%,
+    var(--contact-paper) 100%
+  );
   text-align: center;
-  flex: 1;
-  max-width: 400px;
+  padding: 80px 20px 56px;
+  margin-top: 0;
+  margin: 0;
 }
 
-.contact-right h3 {
-  margin: 1rem 0;
+
+.contact-hero h2 {
+  font-size: clamp(2.2rem, 3.6vw + 1rem, 4rem);
+  font-weight: 700;
+  margin: 0 0 10px;
+  letter-spacing: -0.5px;
 }
 
-.availability {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+.contact-hero p {
+  font-size: clamp(1.1rem, 1.1vw + .8rem, 1.5rem);
+  margin: 0;
+  opacity: .9;
 }
 
-.contact-btn {
+/* ===== Paper area (buttery) ===== */
+.contact-wrap {
+  display: grid;
+  place-items: center;
+  background: var(--contact-paper);
+  padding: 56px 20px 90px;
+}
+
+/* Human note */
+.contact-intro {
+  max-width: 720px;
+  margin: 0;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink);
+  opacity: 0.9;
+}
+.contact-intro em { font-style: italic; opacity: 0.8; }
+
+/* Form */
+.contact-form {
+  width: min(720px, 92vw);
+  background: transparent;
+  border-radius: 16px;
+  padding: 0;
+}
+
+/* Labels */
+.contact-form label {
   display: block;
-  background: #8e44ad;
-  color: #fff;
-  padding: 0.9rem;
-  border-radius: 10px;
-  margin: 0.5rem 0;
-  text-decoration: none;
+  font-size: 1rem;
+  margin: 28px 0 6px;
+}
+.req { font-size: .9rem; opacity: .7; margin-left: 6px; }
+
+/* Underline inputs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgba(0,0,0,.35);
+  background: transparent;
+  padding: 10px 2px 12px;
+  font: inherit;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .15s ease, background-color .15s ease;
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-bottom-color: var(--ink);
+  background: rgba(255,255,255,.25);
+}
+
+/* First / Last row */
+.name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+@media (max-width: 640px) {
+  .name-row { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* Outline pill button (retro) */
+.outline-btn {
+  margin: 44px auto 0;
+  display: block;
   font-weight: 600;
-  transition: all 0.3s ease;
+  padding: 12px 26px;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid rgba(0,0,0,.7);
+  box-shadow: 0 2px 0 rgba(0,0,0,.6);
+  transition: transform .05s ease, box-shadow .15s ease, background .15s ease;
 }
 
-.contact-btn:hover {
-  background: #6c3483;
+.outline-btn:hover {
+  background: rgba(255,255,255,.45);
+  box-shadow: 0 6px 0 rgba(0,0,0,.5);
+  transform: translateY(-2px);
 }
 
-.contact-btn.alt {
-  background: #ff5cff;
+.outline-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 0 rgba(0,0,0,.6);
 }
 
-.contact-btn.alt:hover {
-  background: #e14de6;
+/* Footer line */
+.alt-contact {
+  text-align: center;
+  margin-top: 18px;
+  font-size: .98rem;
+  opacity: .85;
 }
-
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.contact-icons a {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: #111;
-  transition: all 0.3s ease;
-}
-
-.contact-icons a:hover {
-  background: #8e44ad;
-  color: #fff;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .contact-full {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .contact-right {
-    margin-top: 2rem;
-    align-items: center;
-  }
+.alt-contact a {
+  color: var(--ink);
+  text-decoration: underline;
 }

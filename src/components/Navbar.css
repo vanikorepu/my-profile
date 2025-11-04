@@ -19,8 +19,10 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
 }
+
+
 
 /* --- Left (name/logo) --- */
 .navbar-left {
@@ -211,5 +213,5 @@
 }
 
 section {
-  scroll-margin-top: 70px;  /* equal to your navbar height */
+  scroll-margin-top: 55px;  /* equal to your navbar height */
 }

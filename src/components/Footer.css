@@ -1,37 +1,54 @@
-footer {
-  background: #333;
-  color: #fff;
+.site-footer {
+  background: var(--butter, #fff5c7);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   text-align: center;
-  padding: 2rem 1rem;
+  color: var(--ink, #1A1A1A);
+  font-family: var(--font-body, 'Work Sans', sans-serif);
+}
+/* make the footer thinner in height */
+.site-footer {
+  padding: 18px 16px 24px;
+}
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-tagline {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 12px;
 }
 
 .footer-icons {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
+  gap: 22px;
+  margin: 16px 0 18px;
 }
 
 .footer-icons a {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: #fff;
-  transition: all 0.3s ease;
+  color: var(--ink, #1A1A1A);
+  font-size: 1.3rem;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .footer-icons a:hover {
-  background: #8e44ad;
-  color: #fff;
+  transform: translateY(-2px);
+  color: var(--accent, #E46E2E);
 }
 
-footer p {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  color: #fff
+.footer-note {
+  font-size: 0.92rem;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+/* Subtle fade-in for elegance */
+.site-footer {
+  animation: footerFade 0.5s ease-in both;
+}
+@keyframes footerFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }

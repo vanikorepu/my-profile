@@ -18,8 +18,8 @@ export default function About() {
         {/* Left side headline */}
         <div className="about-left">
           <h2>
-            🚀 Boston-based Frontend Engineer passionate <br /> 
-            about UX, accessibility & GenAI.
+            Boston-based Frontend Engineer passionate <br /> 
+            about UX, accessibility & Gen AI.
           </h2>
         </div>
 

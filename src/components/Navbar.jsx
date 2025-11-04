@@ -5,43 +5,74 @@ import "./Navbar.css";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [active, setActive] = useState("hero");
+  const [scrolled, setScrolled] = useState(false);
 
-  // Detect which section is visible
+  // lock page scroll when mobile menu is open
   useEffect(() => {
-    const sections = document.querySelectorAll("section");
-    const options = { threshold: 0.6 };
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+  }, [isMobileMenuOpen]);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActive(entry.target.id);
-        }
-      });
-    }, options);
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
+  // set active section with IntersectionObserver
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      {
+        // account for fixed navbar height (55–60px)
+        root: null,
+        rootMargin: "-60px 0px -40% 0px",
+        threshold: [0.5, 0.75],
+      }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => sections.forEach((s) => observer.unobserve(s));
   }, []);
 
+  // toggle "scrolled" class for solid bg on scroll
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // helper to close overlay after clicking a link
+  const go = (hash) => {
+    setIsMobileMenuOpen(false);
+    // allow the overlay to close before navigating (prevents jump)
+    requestAnimationFrame(() => {
+      location.hash = hash;
+    });
+  };
+
   return (
-    <nav className="navbar">
-      {/* Left side - Name/Logo */}
+    <nav
+      className={[
+        "navbar",
+        scrolled ? "scrolled" : "",
+        active === "contact" ? "on-contact" : "",
+      ].join(" ")}
+    >
+      {/* Left */}
       <div className="navbar-left">
         <h1>Vani Korepu</h1>
       </div>
 
-      {/* Center Nav Links */}
+      {/* Center */}
       <div className="navbar-center">
         <a href="#hero" className={active === "hero" ? "active" : ""}>Home</a>
         <a href="#about" className={active === "about" ? "active" : ""}>About</a>
-        <a href="#work" className={active === "work" ? "active" : ""}>Work</a>
+        {/* FIX: match your timeline id */}
+        <a href="#experience" className={active === "experience" ? "active" : ""}>Experience</a>
+        <a href="#projects" className={active === "projects" ? "active" : ""}>Projects</a>
         <a href="#contact" className={active === "contact" ? "active" : ""}>Contact</a>
       </div>
 
-      {/* Right Socials */}
+      {/* Right */}
       <div className="navbar-right">
         <a href="https://www.linkedin.com/in/vanikorepu" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
@@ -52,35 +83,24 @@ export default function Navbar() {
         <a href="mailto:vanikorepu@gmail.com">
           <FaEnvelope />
         </a>
+        <div className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
 
-      {/* Hamburger (mobile only) */}
-      <div className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-      </div>
-
+      {/* Mobile overlay */}
       {isMobileMenuOpen && (
         <div className="mobile-overlay">
-          <button className="close-btn" onClick={() => setIsMobileMenuOpen(false)}>
-            ✕
-          </button>
+          <button className="close-btn" onClick={() => setIsMobileMenuOpen(false)}>✕</button>
           <div className="mobile-links">
-            <a href="#hero" onClick={() => setIsMobileMenuOpen(false)} className={active === "hero" ? "active" : ""}>
-              <span>1</span> HOME
-            </a>
-            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className={active === "about" ? "active" : ""}>
-              <span>2</span> ABOUT
-            </a>
-            <a href="#work" onClick={() => setIsMobileMenuOpen(false)} className={active === "work" ? "active" : ""}>
-              <span>3</span> WORK
-            </a>
-            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className={active === "contact" ? "active" : ""}>
-              <span>4</span> CONTACT
-            </a>
+            <a className={active === "hero" ? "active" : ""} onClick={() => go("#hero")}><span>1</span> HOME</a>
+            <a className={active === "about" ? "active" : ""} onClick={() => go("#about")}><span>2</span> ABOUT</a>
+            <a className={active === "experience" ? "active" : ""} onClick={() => go("#experience")}><span>3</span> EXPERIENCE</a>
+            <a className={active === "projects" ? "active" : ""} onClick={() => go("#projects")}><span>4</span> PROJECTS</a>
+            <a className={active === "contact" ? "active" : ""} onClick={() => go("#contact")}><span>5</span> CONTACT</a>
           </div>
         </div>
       )}
-
     </nav>
   );
 }

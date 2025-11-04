@@ -9,8 +9,8 @@ export default function Hero() {
         {/* Left: Text */}
         <div className="hero-text">
           <h1>
-            Hiya, I’m <span className="highlight">Vani!
-              Here, you can check out what I'm working on
+            Hey, I’m <span className="highlight">Vani!
+            Check out what I'm working on!
             </span>
           </h1>
           <p className="tagline">
