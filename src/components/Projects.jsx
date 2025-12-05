@@ -4,8 +4,7 @@ const PROJECTS = [
   {
     icon: "🥋",
     name: "MMA Connect",
-    desc:
-      "A platform for safer, verified combat-sports communities. Highlights women-led training, verified gyms, and a Substack-style feed for events and sponsors. Goal: trust + discovery without the noise.",
+    desc: "A platform for safer, verified combat-sports communities. Highlights women-led training, verified gyms, and a Substack-style feed for events and sponsors. Goal: trust + discovery without the noise.",
     live: "https://mma-connect.vercel.app",
     code: "https://github.com/vanikorepu/mma-connect",
     date: "2025–Present",
@@ -13,8 +12,7 @@ const PROJECTS = [
   {
     icon: "🌸",
     name: "Sayayam",
-    desc:
-      "Anonymous guides for international & neurodivergent women navigating reproductive healthcare. Plain-language content, privacy-first flows, and calming UIs to reduce decision fatigue.",
+    desc: "Anonymous guides for international & neurodivergent women navigating reproductive healthcare. Plain-language content, privacy-first flows, and calming UIs to reduce decision fatigue.",
     live: "https://mma-connect.vercel.app",
     code: "https://github.com/vanikorepu/mma-connect",
     date: "2025–Present",
@@ -22,8 +20,7 @@ const PROJECTS = [
   {
     icon: "🎡",
     name: "Rolodex™",
-    desc:
-      "Hyperlocal social without swipes: weekly hangout prompts, small groups, and opt-in circles. Built to encourage real-world plans, not endless scrolling.",
+    desc: "Hyperlocal social without swipes: weekly hangout prompts, small groups, and opt-in circles. Built to encourage real-world plans, not endless scrolling.",
     live: "https://mma-connect.vercel.app",
     code: "https://github.com/vanikorepu/mma-connect",
     date: "2025–Present",
@@ -31,8 +28,7 @@ const PROJECTS = [
   {
     icon: "🗺️",
     name: "New Horizons",
-    desc:
-      "Map-first discovery for “third spaces.” Next.js + dynamic filters sped up geo searches by ~70% and cut bounce by 20% on low-end devices (code-splitting, lazy loading, image compression).",
+    desc: "Map-first discovery for 'third spaces.' Next.js + dynamic filters sped up geo searches by ~70% and cut bounce by 20% on low-end devices (code-splitting, lazy loading, image compression).",
     live: "https://mma-connect.vercel.app",
     code: "https://github.com/vanikorepu/mma-connect",
     date: "2024",
@@ -40,8 +36,7 @@ const PROJECTS = [
   {
     icon: "💡",
     name: "Mercury",
-    desc:
-      "Mobile + wearable (Arduino sensors) for gentle biofeedback. Heartbeat and breathing cues designed for calm, not notifications.",
+    desc: "Mobile + wearable (Arduino sensors) for gentle biofeedback. Heartbeat and breathing cues designed for calm, not notifications.",
     live: "https://mma-connect.vercel.app",
     code: "https://github.com/vanikorepu/mma-connect",
     date: "2020",
@@ -55,7 +50,7 @@ export default function Projects() {
 
       <div className="projects-grid">
         {PROJECTS.map((p) => (
-          <article key={p.name} className="project-card outline-card">
+          <article key={p.name} className="project-card">
             <header className="project-head">
               <h3 className="project-title">
                 <span className="icon" aria-hidden="true">{p.icon}</span>

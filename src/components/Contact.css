@@ -1,25 +1,8 @@
-/* Palette + vars (uses your global text/accent if present) */
-:root {
-  --contact-hero: #f8d6e2;   /* soft pink */
-  --contact-paper: #fff5c7;  /* buttercream */
-  --ink: var(--text-color, #1A1A1A);
-  --accent: var(--accent-color, #E46E2E);
-}
-
-/* Section base */
 #contact {
   padding: 0;
   margin: 0;
-  color: var(--ink);
-  font-family: var(--font-body, 'Work Sans', sans-serif);
-}
-#contact {
-  margin: 0;
-  padding: 0;
 }
 
-
-/* ===== Hero (pink) with subtle fade into paper ===== */
 .contact-hero {
   background: linear-gradient(
     to bottom,
@@ -27,73 +10,61 @@
     var(--contact-paper) 100%
   );
   text-align: center;
-  padding: 80px 20px 56px;
-  margin-top: 0;
-  margin: 0;
+  padding: 6rem 2rem 4rem;
 }
-
 
 .contact-hero h2 {
-  font-size: clamp(2.2rem, 3.6vw + 1rem, 4rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
-  margin: 0 0 10px;
-  letter-spacing: -0.5px;
-}
-
-.contact-hero p {
-  font-size: clamp(1.1rem, 1.1vw + .8rem, 1.5rem);
   margin: 0;
-  opacity: .9;
+  letter-spacing: -1px;
 }
 
-/* ===== Paper area (buttery) ===== */
 .contact-wrap {
   display: grid;
   place-items: center;
   background: var(--contact-paper);
-  padding: 56px 20px 90px;
+  padding: 4rem 2rem 6rem;
 }
 
-/* Human note */
 .contact-intro {
   max-width: 720px;
-  margin: 0;
+  margin-bottom: 2rem;
   text-align: center;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--ink);
   opacity: 0.9;
 }
-.contact-intro em { font-style: italic; opacity: 0.8; }
 
-/* Form */
 .contact-form {
   width: min(720px, 92vw);
-  background: transparent;
-  border-radius: 16px;
   padding: 0;
 }
 
-/* Labels */
 .contact-form label {
   display: block;
   font-size: 1rem;
-  margin: 28px 0 6px;
+  margin: 2rem 0 0.5rem;
+  font-weight: 600;
 }
-.req { font-size: .9rem; opacity: .7; margin-left: 6px; }
 
-/* Underline inputs */
+.req {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-left: 6px;
+}
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   border: none;
-  border-bottom: 2px solid rgba(0,0,0,.35);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.35);
   background: transparent;
-  padding: 10px 2px 12px;
+  padding: 12px 4px;
   font: inherit;
   color: var(--ink);
   outline: none;
-  transition: border-color .15s ease, background-color .15s ease;
+  transition: all 0.2s ease;
 }
 
 .contact-form textarea {
@@ -104,53 +75,56 @@
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-bottom-color: var(--ink);
-  background: rgba(255,255,255,.25);
+  background: rgba(255, 255, 255, 0.3);
 }
 
-/* First / Last row */
 .name-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  gap: 2rem;
 }
 
-@media (max-width: 640px) {
-  .name-row { grid-template-columns: 1fr; gap: 20px; }
-}
-
-/* Outline pill button (retro) */
 .outline-btn {
-  margin: 44px auto 0;
+  margin: 3rem auto 0;
   display: block;
   font-weight: 600;
-  padding: 12px 26px;
+  padding: 14px 32px;
   border-radius: 14px;
   background: transparent;
   color: var(--ink);
-  border: 2px solid rgba(0,0,0,.7);
-  box-shadow: 0 2px 0 rgba(0,0,0,.6);
-  transition: transform .05s ease, box-shadow .15s ease, background .15s ease;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.6);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .outline-btn:hover {
-  background: rgba(255,255,255,.45);
-  box-shadow: 0 6px 0 rgba(0,0,0,.5);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
 }
 
 .outline-btn:active {
   transform: translateY(0);
-  box-shadow: 0 2px 0 rgba(0,0,0,.6);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
 }
 
-/* Footer line */
 .alt-contact {
   text-align: center;
-  margin-top: 18px;
-  font-size: .98rem;
-  opacity: .85;
+  margin-top: 1.5rem;
+  font-size: 0.98rem;
+  opacity: 0.85;
 }
+
 .alt-contact a {
   color: var(--ink);
   text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .name-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }

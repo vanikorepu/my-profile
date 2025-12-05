@@ -1,14 +1,11 @@
 .site-footer {
-  background: var(--butter, #fff5c7);
+  background: var(--contact-paper);
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   text-align: center;
-  color: var(--ink, #1A1A1A);
-  font-family: var(--font-body, 'Work Sans', sans-serif);
+  padding: 2rem 1.5rem 2.5rem;
+  animation: footerFade 0.5s ease-in both;
 }
-/* make the footer thinner in height */
-.site-footer {
-  padding: 18px 16px 24px;
-}
+
 .footer-inner {
   max-width: 900px;
   margin: 0 auto;
@@ -17,38 +14,36 @@
 .footer-tagline {
   font-weight: 500;
   font-size: 1rem;
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
 }
 
 .footer-icons {
   display: flex;
   justify-content: center;
-  gap: 22px;
-  margin: 16px 0 18px;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .footer-icons a {
-  color: var(--ink, #1A1A1A);
-  font-size: 1.3rem;
-  transition: transform 0.2s ease, color 0.2s ease;
+  color: var(--ink);
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .footer-icons a:hover {
-  transform: translateY(-2px);
-  color: var(--accent, #E46E2E);
+  transform: translateY(-3px);
+  color: var(--accent-color);
 }
 
-.footer-note {
-  font-size: 0.92rem;
-  opacity: 0.75;
-  margin-top: 4px;
-}
-
-/* Subtle fade-in for elegance */
-.site-footer {
-  animation: footerFade 0.5s ease-in both;
-}
 @keyframes footerFade {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

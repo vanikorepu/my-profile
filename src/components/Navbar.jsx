@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaLinkedin, FaGithub, FaEnvelope, FaBars, FaTimes } from "react-icons/fa";
+import { Linkedin, Github, Mail, Menu, X } from "lucide-react";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -7,12 +7,10 @@ export default function Navbar() {
   const [active, setActive] = useState("hero");
   const [scrolled, setScrolled] = useState(false);
 
-  // lock page scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
   }, [isMobileMenuOpen]);
 
-  // set active section with IntersectionObserver
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
     const observer = new IntersectionObserver(
@@ -22,7 +20,6 @@ export default function Navbar() {
         });
       },
       {
-        // account for fixed navbar height (55–60px)
         root: null,
         rootMargin: "-60px 0px -40% 0px",
         threshold: [0.5, 0.75],
@@ -32,7 +29,6 @@ export default function Navbar() {
     return () => sections.forEach((s) => observer.unobserve(s));
   }, []);
 
-  // toggle "scrolled" class for solid bg on scroll
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
@@ -40,55 +36,42 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // helper to close overlay after clicking a link
   const go = (hash) => {
     setIsMobileMenuOpen(false);
-    // allow the overlay to close before navigating (prevents jump)
     requestAnimationFrame(() => {
       location.hash = hash;
     });
   };
 
   return (
-    <nav
-      className={[
-        "navbar",
-        scrolled ? "scrolled" : "",
-        active === "contact" ? "on-contact" : "",
-      ].join(" ")}
-    >
-      {/* Left */}
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-left">
         <h1>Vani Korepu</h1>
       </div>
 
-      {/* Center */}
       <div className="navbar-center">
         <a href="#hero" className={active === "hero" ? "active" : ""}>Home</a>
         <a href="#about" className={active === "about" ? "active" : ""}>About</a>
-        {/* FIX: match your timeline id */}
         <a href="#experience" className={active === "experience" ? "active" : ""}>Experience</a>
         <a href="#projects" className={active === "projects" ? "active" : ""}>Projects</a>
         <a href="#contact" className={active === "contact" ? "active" : ""}>Contact</a>
       </div>
 
-      {/* Right */}
       <div className="navbar-right">
         <a href="https://www.linkedin.com/in/vanikorepu" target="_blank" rel="noopener noreferrer">
-          <FaLinkedin />
+          <Linkedin size={20} />
         </a>
         <a href="https://github.com/vanikorepu" target="_blank" rel="noopener noreferrer">
-          <FaGithub />
+          <Github size={20} />
         </a>
         <a href="mailto:vanikorepu@gmail.com">
-          <FaEnvelope />
+          <Mail size={20} />
         </a>
         <div className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </div>
       </div>
 
-      {/* Mobile overlay */}
       {isMobileMenuOpen && (
         <div className="mobile-overlay">
           <button className="close-btn" onClick={() => setIsMobileMenuOpen(false)}>✕</button>

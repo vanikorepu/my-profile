@@ -1,109 +1,107 @@
-/* Uses your existing palette vars if present; otherwise falls back */
-:root{
-  --bg-color: var(--bg-color, #FFFBEA);
-  --ink: var(--text-color, #1A1A1A);
-  --accent: var(--accent-color, #E46E2E);
-  --paper: rgba(255,255,255,0.35);
-}
-
-.projects{
-  max-width: 1100px;
+.projects {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 64px 20px;
-  color: var(--ink);
-  font-family: var(--font-body, 'Work Sans', sans-serif);
+  padding: 6rem 2rem;
 }
 
-.projects > h2{
+.projects > h2 {
   text-align: center;
-  margin-bottom: 28px;
-  font-size: clamp(1.9rem, 2vw + 1rem, 2.6rem);
-  letter-spacing: -0.3px;
+  margin-bottom: 3rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
 }
 
-/* responsive grid */
-.projects-grid{
+.projects-grid {
   display: grid;
-  gap: 22px;
+  gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
-/* paper-pill outline style (matches your Contact .outline-btn / Timeline) */
-.outline-card{
+.project-card {
   background: transparent;
   color: var(--ink);
-  border: 2px solid rgba(0,0,0,.7);
-  border-radius: 14px;
-  box-shadow: 0 2px 0 rgba(0,0,0,.6);
-  padding: 18px 20px;
-  transition: transform .05s ease, box-shadow .15s ease, background .15s ease;
-}
-.outline-card:hover{
-  background: var(--paper);
-  box-shadow: 0 6px 0 rgba(0,0,0,.5);
-  transform: translateY(-2px);
-}
-.outline-card:active{
-  transform: translateY(0);
-  box-shadow: 0 2px 0 rgba(0,0,0,.6);
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
+  padding: 1.8rem;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.6);
+  transition: all 0.2s ease;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
 }
 
-/* header row */
-.project-head{
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+
+.project-card:hover {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+}
+
+.project-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
-.project-title{
+
+.project-title {
   margin: 0;
   font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: -0.2px;
-  display: inline-flex;
+  font-size: 1.2rem;
+  display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
-.project-title .icon{ font-size: 1.2rem; }
 
-.date{
-  font-size: .92rem;
+.icon {
+  font-size: 1.4rem;
+}
+
+.date {
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #7b4e16;            /* warm ink tone that fits your palette */
+  color: #7b4e16;
   background: #fff;
-  border: 1px solid rgba(0,0,0,.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 8px;
-  padding: 2px 8px;
+  padding: 4px 10px;
   white-space: nowrap;
 }
 
-/* body */
-.project-desc{
-  margin: 4px 0 10px;
+.project-desc {
+  margin: 0.5rem 0 1rem;
   line-height: 1.65;
-  font-size: .98rem;
+  font-size: 0.98rem;
 }
 
-/* links */
-.project-links a{
-  color: var(--accent);
+.project-links {
+  margin: 0;
+}
+
+.project-links a {
+  color: var(--accent-color);
   text-decoration: none;
-  border-bottom: 1px solid rgba(228,110,46,0.35);
+  border-bottom: 1px solid rgba(228, 110, 46, 0.35);
   padding-bottom: 1px;
-  transition: color .15s ease, border-color .15s ease, background .15s ease;
+  transition: all 0.2s ease;
 }
-.project-links a:hover{
+
+.project-links a:hover {
   color: var(--ink);
-  border-bottom-color: rgba(26,26,26,.35);
+  border-bottom-color: rgba(26, 26, 26, 0.5);
 }
 
-/* spacing between cards, if you want more breathing room */
-.project-card{ }
-.project-card + .project-card{ margin-top: 0; } /* grid handles spacing */
+@media (max-width: 560px) {
+  .project-card {
+    padding: 1.5rem;
+  }
 
-@media (max-width: 560px){
-  .outline-card{ padding: 16px; border-radius: 12px; }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
-/* Keep your existing project layout rules. */
-

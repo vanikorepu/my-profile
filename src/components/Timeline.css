@@ -1,202 +1,160 @@
-/* ===== Retro Vertical Timeline ===== */
-
 .tl {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 64px 20px;
+  padding: 6rem 2rem;
 }
 
 .tl > h2 {
   text-align: center;
-  margin-bottom: 28px;
-  font-size: clamp(1.9rem, 2vw + 1rem, 2.6rem);
+  margin-bottom: 3rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
 }
 
-/* Ordered list as vertical rail */
 .tl-list {
   list-style: none;
   position: relative;
-  padding-left: 24px;   /* room for rail on mobile */
-  margin: 0;
+  padding-left: 24px;
 }
 
-/* Single item row */
 .tl-item {
   position: relative;
   display: grid;
-  grid-template-columns: 56px 1fr; /* left rail / right card */
-  gap: 18px;
+  grid-template-columns: 60px 1fr;
+  gap: 2rem;
   align-items: start;
-  margin: 0 0 48px 0;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
 }
 
-/* The spine (dashed line) */
+.tl-item:nth-child(1) { animation-delay: 0.1s; }
+.tl-item:nth-child(2) { animation-delay: 0.2s; }
+.tl-item:nth-child(3) { animation-delay: 0.3s; }
+.tl-item:nth-child(4) { animation-delay: 0.4s; }
+.tl-item:nth-child(5) { animation-delay: 0.5s; }
+
 .tl-spine {
   position: absolute;
-  left: 26px;
+  left: 28px;
   top: 0;
-  bottom: -22px; /* extend to next card */
+  bottom: -24px;
   width: 0;
-  border-left: 2px dashed rgba(0,0,0,0.18);
+  border-left: 2px dashed rgba(0, 0, 0, 0.2);
 }
 
-/* The node: a small disc with a subtle ring */
 .tl-node {
   grid-column: 1 / 2;
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   position: relative;
   display: grid;
   place-items: center;
 }
+
 .tl-node::before {
   content: "";
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: var(--accent-color, #E46E2E);
-  box-shadow:
-    0 0 0 6px rgba(228,110,46,0.12),   /* ink ring */
-    0 4px 10px rgba(0,0,0,0.08);       /* soft drop */
+  background: var(--accent-color);
+  box-shadow: 0 0 0 8px rgba(228, 110, 46, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
   display: block;
+  transition: all 0.3s ease;
 }
 
-/* Little “stamp” number for retro feel */
+.tl-item:hover .tl-node::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 12px rgba(228, 110, 46, 0.2), 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
 .tl-stamp {
   position: absolute;
-  top: -8px;
-  left: 22px;
+  top: -10px;
+  left: 24px;
   font-size: 0.75rem;
   font-weight: 700;
   color: #fff;
   background: #1A1A1A;
   border-radius: 10px;
-  padding: 2px 6px;
+  padding: 3px 8px;
   transform: rotate(-3deg);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* The card (paper) */
 .tl-card {
   grid-column: 2 / 3;
-  background: var(--card-bg, #fffdf6);
-  border: 1px solid rgba(0,0,0,0.08);
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid rgba(0, 0, 0, 0.7);
   border-radius: 16px;
-  padding: 18px 20px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  position: relative;
+  padding: 1.5rem;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.6);
+  transition: all 0.2s ease;
 }
 
-/* Typewriter date tab */
-.tl-date {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #7b4e16;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 8px;
-  padding: 4px 10px;
-  white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+.tl-card:hover {
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
 }
 
-/* Header layout */
 .tl-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 6px;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .tl-title {
-  font-size: clamp(1.05rem, 0.9rem + 0.7vw, 1.4rem);
-  margin: 0;
-}
-.tl-title .sep { opacity: 0.55; }
-
-/* Blurb copy */
-.tl-blurb {
-  margin: 4px 0 2px;
-  line-height: 1.65;
-}
-
-/* Hover micro-motion */
-.tl-card:hover {
-  transform: translateY(-1px);
-  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-  border-color: rgba(0,0,0,0.12);
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-  .tl-item {
-    grid-template-columns: 40px 1fr;
-  }
-  .tl-node { width: 40px; height: 40px; }
-  .tl-node::before { width: 14px; height: 14px; }
-  .tl-stamp { top: -10px; left: 12px; transform: rotate(-4deg); }
-}
-
-/* Keep your existing timeline layout rules.
-   These additions only change the card's visual style to match .outline-btn */
-
-/* Preserve your card’s original spacing */
-.tl-card {
-  background: transparent;
-  padding: 16px 18px;   /* matches compact spacing used on Contact */
-  border-radius: 12px;  /* base radius; .outline-card will override to 14px */
-}
-
-/* --- Paper-pill outline style (same recipe as Contact .outline-btn) --- */
-.outline-card {
-  background: transparent;
-  color: var(--ink, #1A1A1A);
-  border: 2px solid rgba(0,0,0,.7);
-  border-radius: 14px;
-  box-shadow: 0 2px 0 rgba(0,0,0,.6);
-  transition: transform .05s ease, box-shadow .15s ease, background .15s ease;
-}
-
-.outline-card:hover {
-  background: rgba(255,255,255,.45);
-  box-shadow: 0 6px 0 rgba(0,0,0,.5);
-  transform: translateY(-2px);
-}
-
-.outline-card:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 0 rgba(0,0,0,.6);
-}
-
-/* Typography harmony with your site */
-.tl-title {
+  font-size: 1.15rem;
   font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: -0.2px;
-  margin: 2px 0 6px;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.tl-title .sep {
+  opacity: 0.5;
+  margin: 0 0.5rem;
 }
 
 .tl-date {
-  font-size: .92rem;
-  opacity: .75;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #7b4e16;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 4px 10px;
+  white-space: nowrap;
 }
 
 .tl-blurb {
-  font-size: .98rem;
+  margin: 0;
   line-height: 1.6;
-  margin: 6px 0 2px;
+  font-size: 0.98rem;
 }
 
-/* Optional tiny accent bar on the left (toggle on if you like) */
-/*
-.outline-card { position: relative; }
-.outline-card::before {
-  content: "";
-  position: absolute;
-  left: -2px; top: 10px; bottom: 10px;
-  width: 4px; border-radius: 4px;
-  background: var(--accent, #E46E2E); opacity: .85;
+@media (max-width: 640px) {
+  .tl-item {
+    grid-template-columns: 50px 1fr;
+    gap: 1rem;
+  }
+
+  .tl-node {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tl-node::before {
+    width: 14px;
+    height: 14px;
+  }
+
+  .tl-stamp {
+    top: -10px;
+    left: 12px;
+    transform: rotate(-4deg);
+  }
 }
-*/

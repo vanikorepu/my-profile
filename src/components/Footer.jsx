@@ -1,4 +1,4 @@
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { Linkedin, Github, Mail } from "lucide-react";
 import "./Footer.css";
 
 export default function Footer() {
@@ -16,7 +16,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            <FaLinkedin />
+            <Linkedin size={24} />
           </a>
           <a
             href="https://github.com/vanikorepu"
@@ -24,10 +24,10 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="GitHub"
           >
-            <FaGithub />
+            <Github size={24} />
           </a>
           <a href="mailto:vkorepu.cs@gmail.com" aria-label="Email">
-            <FaEnvelope />
+            <Mail size={24} />
           </a>
         </div>
       </div>
