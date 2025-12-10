@@ -1,75 +1,96 @@
+// src/components/Projects.jsx
 import "./Projects.css";
 
 const PROJECTS = [
   {
-    icon: "🥋",
-    name: "MMA Connect",
-    desc: "A platform for safer, verified combat-sports communities. Highlights women-led training, verified gyms, and a Substack-style feed for events and sponsors. Goal: trust + discovery without the noise.",
-    live: "https://mma-connect.vercel.app",
-    code: "https://github.com/vanikorepu/mma-connect",
+    id: "mma-connect",
+    emoji: "🥋",
+    title: "MMA Connect",
     date: "2025–Present",
+    tag: "Product · UX · Frontend",
+    blurb:
+      "A platform for safer, verified combat-sports communities. Highlights women-led training, verified gyms, and a Substack-style feed for events and sponsors. Goal: trust + discovery without the noise.",
+    demo: "https://mma-connect.vercel.app",
+    github: "https://github.com/vanikorepu/mma-connect",
   },
   {
-    icon: "🌸",
-    name: "Sayayam",
-    desc: "Anonymous guides for international & neurodivergent women navigating reproductive healthcare. Plain-language content, privacy-first flows, and calming UIs to reduce decision fatigue.",
-    live: "https://mma-connect.vercel.app",
-    code: "https://github.com/vanikorepu/mma-connect",
-    date: "2025–Present",
+    id: "local-thrift",
+    emoji: "🧺",
+    title: "Local Thrift",
+    date: "2025",
+    tag: "UX · Maps · Marketplace",
+    blurb:
+      "Hyperlocal marketplace for second-hand & upcycled finds from neighbors, not warehouses. Map-first browsing, filters by category/condition, and gentle nudges toward reuse over fast fashion.",
+    demo: "#",
+    github: "https://github.com/vanikorepu/LocalThrift#",
   },
   {
-    icon: "🎡",
-    name: "Rolodex™",
-    desc: "Hyperlocal social without swipes: weekly hangout prompts, small groups, and opt-in circles. Built to encourage real-world plans, not endless scrolling.",
-    live: "https://mma-connect.vercel.app",
-    code: "https://github.com/vanikorepu/mma-connect",
-    date: "2025–Present",
-  },
-  {
-    icon: "🗺️",
-    name: "New Horizons",
-    desc: "Map-first discovery for 'third spaces.' Next.js + dynamic filters sped up geo searches by ~70% and cut bounce by 20% on low-end devices (code-splitting, lazy loading, image compression).",
-    live: "https://mma-connect.vercel.app",
-    code: "https://github.com/vanikorepu/mma-connect",
+    id: "new-horizons",
+    emoji: "🗺️",
+    title: "New Horizons",
     date: "2024",
-  },
-  {
-    icon: "💡",
-    name: "Mercury",
-    desc: "Mobile + wearable (Arduino sensors) for gentle biofeedback. Heartbeat and breathing cues designed for calm, not notifications.",
-    live: "https://mma-connect.vercel.app",
-    code: "https://github.com/vanikorepu/mma-connect",
-    date: "2020",
+    tag: "Next.js · Geo · A11y",
+    blurb:
+      "Map-first discovery for “third spaces.” Next.js + dynamic filters sped up geo searches by ~70% and cut bounce by 20% on low-end devices with code-splitting, lazy loading, and image compression.",
+    demo: "#",
+    github: "https://github.com/Vishalk30/new_horizons", // adjust if needed
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="projects" aria-label="Projects">
-      <h2>Projects</h2>
+    <section id="projects" className="projects">
+      <header className="projects-header">
+        <h2>Featured Projects</h2>
+        <div className="projects-underline" />
+        <p>Recent things I’ve shipped and obsessed over.</p>
+      </header>
 
-      <div className="projects-grid">
+      <div className="projects-row">
         {PROJECTS.map((p) => (
-          <article key={p.name} className="project-card">
-            <header className="project-head">
-              <h3 className="project-title">
-                <span className="icon" aria-hidden="true">{p.icon}</span>
-                {p.name}
-              </h3>
-              <span className="date">{p.date}</span>
-            </header>
+          <article key={p.id} className="project-card">
+            {/* “Image” area – you can swap this to a real screenshot later */}
+            <a
+              href={p.demo !== "#" ? p.demo : undefined}
+              target={p.demo !== "#" ? "_blank" : undefined}
+              rel={p.demo !== "#" ? "noopener noreferrer" : undefined}
+              className="project-thumb"
+            >
+              <span className="project-emoji">{p.emoji}</span>
+              <span className="project-thumb-title">{p.title}</span>
+            </a>
 
-            <p className="project-desc">{p.desc}</p>
+            <div className="project-meta">
+              <span className="project-date">{p.date}</span>
+              <span className="project-tag">{p.tag}</span>
+            </div>
+
+            <h3 className="project-title">{p.title}</h3>
+            <p className="project-blurb">{p.blurb}</p>
 
             <p className="project-links">
               👉{" "}
-              <a href={p.live} target="_blank" rel="noopener noreferrer">
-                Live Demo
-              </a>{" "}
-              |{" "}
-              <a href={p.code} target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
+              {p.demo !== "#" && (
+                <>
+                  <a
+                    href={p.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                  {"  |  "}
+                </>
+              )}
+              {p.github !== "#" && (
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              )}
             </p>
           </article>
         ))}
