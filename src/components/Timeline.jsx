@@ -10,19 +10,19 @@ const ITEMS = [
   { 
     title: "Software Engineer", 
     org: "UMass Libraries - Digital Media Lab", 
-    dates: "2024–2025",
+    dates: "2022–2025",
     blurb: "Rebuilt the lab site, tripled student traffic, 500+ sign-ups, +25% mobile a11y; added SEO + analytics for outreach decisions." 
   },
   { 
     title: "Frontend Developer", 
     org: "Kanor Systems", 
-    dates: "2022–2023",
+    dates: "2021–2022",
     blurb: "Cut registration time 15% across 2,500+ users, Looker dashboards, extended Zoho CRM to track 500+ accounts." 
   },
   { 
     title: "Software Developer", 
     org: "Havish Tech", 
-    dates: "2021–2022",
+    dates: "2020–2021",
     blurb: "Redesigned React storefronts, −18% cart abandonment, +22% session time, CTA/checkout A/B tests lifted conversions 15%." 
   },
   { 
@@ -42,9 +42,8 @@ export default function Timeline() {
         {ITEMS.map((it, i) => (
           <li key={it.title + it.org} className="tl-item">
             <div className="tl-spine" aria-hidden="true" />
-            <div className="tl-node" aria-hidden="true">
-              <span className="tl-stamp">{i + 1}</span>
-            </div>
+            <div className="tl-node" aria-hidden="true" />
+
 
             <article className="tl-card">
               <header className="tl-head">

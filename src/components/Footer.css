@@ -1,40 +1,69 @@
 .site-footer {
   background: var(--contact-paper);
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-  text-align: center;
-  padding: 2rem 1.5rem 2.5rem;
+  padding: 2.25rem 1.5rem;
   animation: footerFade 0.5s ease-in both;
 }
 
 .footer-inner {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .footer-tagline {
-  font-weight: 500;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  margin: 0;
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.75;
 }
 
-.footer-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 1.5rem 0;
-}
-
-.footer-icons a {
-  color: var(--ink);
-  font-size: 1.4rem;
-  transition: all 0.3s ease;
+.footer-links {
   display: flex;
   align-items: center;
+  gap: 2.2rem;
 }
 
-.footer-icons a:hover {
-  transform: translateY(-3px);
-  color: var(--accent-color);
+.footer-links a {
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--ink);
+  opacity: 0.7;
+  text-decoration: none;
+  position: relative;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0.85);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.footer-links a:hover::after {
+  opacity: 0.8;
+  transform: scaleX(1);
 }
 
 @keyframes footerFade {
@@ -45,5 +74,24 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Mobile: Rachel-style stack + vertical links */
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 2rem 1.25rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 }
