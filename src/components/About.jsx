@@ -6,19 +6,21 @@ export default function About() {
       <div className="about-container">
         <div className="about-left">
           <h2>
-            Boston-based Frontend Engineer passionate <br /> 
-            about UX, accessibility & Gen AI.
+            I'm a frontend engineer, designer & AI enthusiast - always seeking new adventures.
           </h2>
         </div>
 
         <div className="about-right">
           <p>
-            Experience across research labs, academia, and software teams, 
-            specializing in building intuitive, accessible, and performant interfaces. 
-            I've worked as a Research Engineer on Generative AI, a Software Developer 
-            at UMass Amherst Libraries, and spend all day with coffee, Figma, NextJS, and Tailwind CSS.
+            I think deeply about interfaces, accessibility, and the future of AI-human interaction. 
+            Currently exploring how generative AI can be both powerful and responsible.
           </p>
-          <p className="location">📍 Currently in Massachusetts, USA.</p>
+          <p>
+            Experience across research labs, academia, and software teams. I've worked as a Research 
+            Engineer on Generative AI, a Software Developer at UMass Amherst Libraries, and spend my 
+            days busy wih the beans, Figma, Next.js, Tailwind CSS, film photography.
+          </p>
+          <p className="location">📍 Based in Massachusetts, USA.</p>
 
           <div className="skills">
             <div title="Figma">
@@ -54,15 +56,35 @@ export default function About() {
         </div>
       </div>
 
-      <div className="about-bio">
-        <h2>☕ A bit about me ☕</h2>
-        <ul>
-          <li> - UMass CS grad, really majored in "usable things."</li>
-          <li> - Playing with GenAI, teaching machines to cite.</li>
-          <li> - Built RAG + WCAG tools so libraries don't suffer.</li>
-          <li> - Living in the overlap of design × code × AI.</li>
-          <li> - Substack notes on tech, media, connection.</li>
-        </ul>
+      <div className="about-details">
+        <p className="about-open">
+          Open to contract and freelance opportunities. If you're working on something cool, 
+          <a href="#contact"> let's chat!</a>
+        </p>
+
+        <div className="about-interests">
+          <h3>Outside of engineering, product development, and design, I'm:</h3>
+          <ul>
+            <li>exploring how GenAI can cite sources responsibly</li>
+            <li>building RAG systems that actually help people</li>
+            <li>obsessing over WCAG guidelines</li>
+            <li>living in the overlap of design × code × AI</li>
+            <li>writing about tech, media, and connection on{" "}<a href="https://substack.com/@vanikorepu" target="_blank" rel="noopener noreferrer">Substack</a></li>
+            <li>brewing the perfect cup of coffee (still a work in progress!)</li>
+            <li>hiking the beautiful trails of New England</li>
+            <li>geeking out about Russian literature and history</li>
+          </ul>
+        </div>
+
+        <p className="about-cta">
+          To connect or collaborate, reach out on{" "}
+          <a href="https://www.linkedin.com/in/vanikorepu" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+          , or by{" "}
+          <a href="mailto:vkorepu.cs@gmail.com">email</a>
+            - can't wait to meet you!
+        </p>
       </div>
     </section>
   );

@@ -14,9 +14,9 @@ export default function Contact() {
     e.preventDefault();
     
     // Build mailto link with form data
-    const subject = encodeURIComponent(`Portfolio Contact from ${formData.first} ${formData.last}`);
+    const subject = encodeURIComponent(`Hey Vani! Message from ${formData.first} ${formData.last}`);
     const body = encodeURIComponent(
-      `Message: ${formData.message}\n\nFrom: ${formData.first} ${formData.last}\nEmail: ${formData.email}`
+      `${formData.message}\n\n—\n${formData.first} ${formData.last}\n${formData.email}`
     );
     
     // Open mailto link
@@ -42,30 +42,30 @@ export default function Contact() {
   return (
     <section id="contact" aria-label="Contact">
       <div className="contact-hero">
-        <h2>Let's Chat!</h2>
+        <div className="contact-badge">☕ Always brewing ideas</div>
+        <h2>LET'S WORK TOGETHER</h2>
+        <div className="contact-underline" />
+        <p className="contact-tagline">
+          Got a project? Want to collaborate? Or just want to chat about tech over coffee?
+        </p>
       </div>
 
       <div className="contact-wrap">
-        <div className="contact-intro">
-          <p>
-            I'd love to hear from you! Whether you have a question, want to collaborate, or just want to say hi, feel free to reach out.
-          </p>
-        </div>
-
         <form className="contact-form" onSubmit={handleSubmit}>
           <label htmlFor="message">
-            Message <span className="req">(required)</span>
+            YOUR MESSAGE <span className="req">(REQUIRED)</span>
           </label>
           <textarea 
             id="message" 
             name="message" 
             value={formData.message}
             onChange={handleChange}
+            placeholder="Tell me about your project, idea, or just say hi..."
             required 
           />
 
           <label htmlFor="email">
-            Email <span className="req">(required)</span>
+            EMAIL ADDRESS <span className="req">(REQUIRED)</span>
           </label>
           <input 
             id="email" 
@@ -73,45 +73,65 @@ export default function Contact() {
             type="email" 
             value={formData.email}
             onChange={handleChange}
+            placeholder="your.email@example.com"
             required 
           />
 
           <div className="name-row">
             <div>
-              <label htmlFor="first">First Name</label>
+              <label htmlFor="first">FIRST NAME</label>
               <input 
                 id="first" 
                 name="first" 
                 type="text" 
                 value={formData.first}
                 onChange={handleChange}
+                placeholder="Mark"
               />
             </div>
             <div>
-              <label htmlFor="last">Last Name</label>
+              <label htmlFor="last">LAST NAME</label>
               <input 
                 id="last" 
                 name="last" 
                 type="text" 
                 value={formData.last}
                 onChange={handleChange}
+                placeholder="Zuckerberg"
               />
             </div>
           </div>
 
-          <button type="submit" className="outline-btn">Submit</button>
+          <button type="submit" className="outline-btn">
+            SEND MESSAGE
+          </button>
           
           {status && (
-            <div style={{ textAlign: "center", marginTop: "1rem", color: "var(--purple)", fontWeight: 600 }}>
+            <div className="status-message">
               {status}
             </div>
           )}
-
-          <div className="alt-contact">
-            or email directly:{" "}
-            <a href="mailto:vkorepu.cs@gmail.com">vkorepu.cs@gmail.com</a>
-          </div>
         </form>
+
+        <div className="contact-stats">
+          <div className="stat-item">
+            <div className="stat-number">~24H</div>
+            <div className="stat-label">Response Time</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">☕ ∞</div>
+            <div className="stat-label">Coffee Consumed</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">100%</div>
+            <div className="stat-label">Excited to Connect</div>
+          </div>
+        </div>
+
+        <div className="alt-contact">
+          Prefer email?{" "}
+          <a href="mailto:vkorepu.cs@gmail.com">vkorepu.cs@gmail.com</a>
+        </div>
       </div>
     </section>
   );
