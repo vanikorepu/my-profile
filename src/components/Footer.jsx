@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="site-footer" role="contentinfo">
       <div className="footer-inner">
         <p className="footer-tagline">
-          © 2025 Vani Korepu - Hand-coded with ❤️ and caffeine ☕.
+          © 2025 Vani Korepu - Made with ❤️ and caffeine ☕.
         </p>
 
         <div className="footer-icons">

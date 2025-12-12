@@ -6,19 +6,16 @@ export default function About() {
       <div className="about-container">
         <div className="about-left">
           <h2>
-            I'm a frontend engineer, designer & AI enthusiast - always seeking new adventures.
+            I'm a Full Stack Engineer, designer & AI enthusiast - always seeking new adventures.
           </h2>
         </div>
 
         <div className="about-right">
           <p>
-            I think deeply about interfaces, accessibility, and the future of AI-human interaction. 
-            Currently exploring how generative AI can be both powerful and responsible.
+            I think deeply about people, products, history, accessibility, and the future of technology. Lately, I’ve been working closely with Holdorf Press and TH Forest, building and maintaining publishing sites that support long-form reading and thoughtful structure. In an increasingly digital world, I’m drawn to work that treats storytelling with care - where technology steps back and lets ideas unfold. I’m also happily rabbit-holing into the world of human–AI interaction.
           </p>
           <p>
-            Experience across research labs, academia, and software teams. I've worked as a Research 
-            Engineer on Generative AI, a Software Developer at UMass Amherst Libraries, and spend my 
-            days busy wih the beans, Figma, Next.js, Tailwind CSS, film photography.
+            My background spans research labs, academia, and software teams - from Generative AI research to building digital infrastructure at UMass Amherst Libraries. These days, my work lives somewhere between Figma, Next.js, Tailwind CSS, and film photography.
           </p>
           <p className="location">📍 Based in Massachusetts, USA.</p>
 
@@ -58,7 +55,7 @@ export default function About() {
 
       <div className="about-details">
         <p className="about-open">
-          Open to contract and freelance opportunities. If you're working on something cool, 
+          Open to Full Time opportunities and collaborations. If you're working on something cool, 
           <a href="#contact"> let's chat!</a>
         </p>
 
@@ -77,7 +74,7 @@ export default function About() {
         </div>
 
         <p className="about-cta">
-          To connect or collaborate, reach out on{" "}
+          To befriend me or hire me, reach out on{" "}
           <a href="https://www.linkedin.com/in/vanikorepu" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>

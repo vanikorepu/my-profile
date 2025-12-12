@@ -3,33 +3,33 @@ import "./Timeline.css";
 const ITEMS = [
   { 
     title: "Training Lead", 
-    org: "Gen AI Global — AI 2027", 
+    org: "Gen AI Global - AI 2027", 
     dates: "2025–Present",
-    blurb: "Translated AI-safety research into agentic workflows; designed training & eval pipelines; aligned technical, policy, and human-factors teams." 
+    blurb: "Translated AI-safety research into agentic workflows, designed training & eval pipelines; aligned technical, policy, and human-factors teams." 
   },
   { 
     title: "Software Engineer", 
-    org: "UMass Libraries — Digital Media Lab", 
+    org: "UMass Libraries - Digital Media Lab", 
     dates: "2024–2025",
-    blurb: "Rebuilt the lab site; tripled student traffic; 500+ sign-ups; +25% mobile a11y; added SEO + analytics for outreach decisions." 
+    blurb: "Rebuilt the lab site, tripled student traffic, 500+ sign-ups, +25% mobile a11y; added SEO + analytics for outreach decisions." 
   },
   { 
     title: "Frontend Developer", 
     org: "Kanor Systems", 
     dates: "2022–2023",
-    blurb: "Cut registration time 15% across 2,500+ users; Looker dashboards; extended Zoho CRM to track 500+ accounts." 
+    blurb: "Cut registration time 15% across 2,500+ users, Looker dashboards, extended Zoho CRM to track 500+ accounts." 
   },
   { 
     title: "Software Developer", 
     org: "Havish Tech", 
     dates: "2021–2022",
-    blurb: "Redesigned React storefronts; −18% cart abandonment; +22% session time; CTA/checkout A/B tests lifted conversions 15%." 
+    blurb: "Redesigned React storefronts, −18% cart abandonment, +22% session time, CTA/checkout A/B tests lifted conversions 15%." 
   },
   { 
-    title: "Website Admin Manager", 
+    title: "Web Developer", 
     org: "Holdorf Press, Inc.", 
-    dates: "2020–2021",
-    blurb: "Optimized WordPress for 50+ authors; ~30% speed gain via image/caching; improved UX and rankings." 
+    dates: "2025–Present",
+    blurb: "Optimized WordPress for 50+ authors, ~30% speed gain via image/caching, improved UX and rankings." 
   },
 ];
 

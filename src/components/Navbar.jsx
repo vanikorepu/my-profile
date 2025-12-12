@@ -46,7 +46,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-left">
-        <h1>Vani Korepu</h1>
+        <h2>Vani Korepu</h2>
       </div>
 
       <div className="navbar-center">

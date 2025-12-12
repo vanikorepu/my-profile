@@ -42,7 +42,6 @@
 }
 
 /* ---------- Layout ---------- */
-/* Featured project spans full width, other two sit side-by-side */
 
 .projects-row {
   display: grid;
@@ -50,7 +49,7 @@
   gap: 2.8rem;
 }
 
-/* ===== CARD STRUCTURE — NO WRAPPERS ===== */
+/* ---------- Card Structure ---------- */
 
 .project-card {
   background: none;
@@ -62,21 +61,15 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  margin-bottom: 4rem; /* breathing room between projects */
+  margin-bottom: 4rem;
 }
 
-.project-card--featured {
-  grid-column: 1 / -1;
-  margin-bottom: 5rem;
-}
-
-/* no hover lift */
 .project-card:hover {
   transform: none;
   box-shadow: none;
 }
 
-/* ---------- Gradient "thumbnail" block ---------- */
+/* ---------- Thumbnail ---------- */
 
 .project-thumb {
   position: relative;
@@ -87,92 +80,75 @@
   aspect-ratio: 16 / 9;
   border-radius: 24px;
   padding: 1.1rem 1.4rem;
-  background: linear-gradient(135deg, #e4d4f4 0%, #ffd4c8 100%); /* lavender → peach */
+  background: linear-gradient(135deg, #e4d4f4 0%, #ffd4c8 100%);
   text-decoration: none;
   color: var(--ink);
   margin-bottom: 1rem;
   overflow: hidden;
+
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Lift the entire card on hover */
+/* Hover lift (subtle, editorial) */
 .project-thumb:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+  /* VIEW WEBSITE cursor */
+  cursor: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' width='160' height='40'>\
+    <rect x='0' y='0' rx='20' ry='20' width='160' height='40' fill='%23000000'/>\
+    <text x='80' y='26' text-anchor='middle' font-size='14' font-family='Georgia, Times, serif' fill='white' letter-spacing='1'>VIEW WEBSITE ↗</text>\
+  </svg>") 80 20, pointer;
 }
 
-.project-thumb--featured {
-  aspect-ratio: 21 / 9;
-}
+/* ---------- Overlay ---------- */
 
-/* small text label inside gradient */
-.project-thumb-title {
-  font-family: "Work Sans", system-ui, sans-serif;
-  font-weight: 500;
-  font-size: 0.95rem;
-  z-index: 2;
-  position: relative;
-}
-
-/* emoji fallback (if no image) */
-.project-emoji {
-  font-size: 1.9rem;
-  z-index: 2;
-  position: relative;
-}
-
-/* FIXED: image fills the entire gradient box */
-.project-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 24px;
-  z-index: 1;
-  transition: transform 0.5s ease, filter 0.5s ease;
-}
-
-/* Hover animation for images */
-.project-thumb:hover .project-icon {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-/* Enhance the overlay on hover */
-.project-thumb:hover::before {
-  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
-}
-
-/* Add overlay to ensure text is readable over image */
 .project-thumb::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
   z-index: 1;
   border-radius: 24px;
 }
 
-/* Make title more visible over images */
-.project-thumb .project-thumb-title,
-.project-thumb .project-emoji {
+/* ---------- Image ---------- */
+
+.project-icon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  z-index: 0;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.project-thumb:hover .project-icon {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* ---------- Title Overlay ---------- */
+
+.project-thumb-title {
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
   color: white;
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  z-index: 2;
   transition: transform 0.3s ease;
 }
 
-/* Animate title on hover */
 .project-thumb:hover .project-thumb-title {
   transform: translateY(-4px);
 }
 
-/* ---------- Text styles ---------- */
+/* ---------- Text ---------- */
 
 .project-meta {
   font-family: "Work Sans", system-ui, sans-serif;
@@ -190,11 +166,6 @@
   margin-top: 0.1rem;
 }
 
-.project-card--featured .project-title {
-  font-size: 1.8rem;
-}
-
-/* italic hook line */
 .project-subtitle {
   font-family: "Work Sans", system-ui, sans-serif;
   font-size: 1rem;
@@ -207,21 +178,6 @@
   font-size: 0.96rem;
   line-height: 1.8;
   margin-top: 0.25rem;
-}
-
-/* ---------- Links ---------- */
-
-.project-links {
-  margin-top: 1rem;
-  font-family: "Work Sans", system-ui, sans-serif;
-  font-size: 0.9rem;
-}
-
-.project-links a {
-  color: var(--accent-color);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
 }
 
 /* ---------- Responsive ---------- */

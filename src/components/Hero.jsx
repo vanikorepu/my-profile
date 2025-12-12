@@ -11,7 +11,7 @@ export default function Hero() {
             Hey, I'm <span className="highlight">Vani! Check out what I'm working on!</span>
           </h1>
           <p className="tagline">
-            A coffee-fueled frontend engineer. <br />
+            A coffee-fueled Full Stack Engineer. <br />
             Research Engineer @ Gen AI Global. <br />
             CS Grad @ UMass Amherst.
           </p>
