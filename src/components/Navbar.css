@@ -164,16 +164,76 @@
   color: #ffdaff;
 }
 
+/* ========== MOBILE RESPONSIVENESS ========== */
+
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0 1.5rem;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .navbar-left h1 {
+    font-size: 1rem;
+  }
+
   .navbar-center {
+    display: none;
+  }
+
+  /* Make icons smaller and hide some on mobile */
+  .navbar-right {
+    gap: 0.5rem;
+  }
+
+  .navbar-right a {
+    font-size: 1.1rem;
+  }
+
+  /* Show hamburger */
+  .hamburger {
+    display: flex;
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .navbar-left h1 {
+    font-size: 0.9rem;
+  }
+
+  /* Hide social icons on very small screens, keep only hamburger */
+  .navbar-right a {
     display: none;
   }
 
   .hamburger {
     display: flex;
+    margin-left: 0;
   }
 
-  .navbar {
-    padding: 0 1.5rem;
+  .navbar-right {
+    gap: 0;
+  }
+}
+
+/* Better mobile menu positioning */
+@media (max-width: 480px) {
+  .close-btn {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.8rem;
+  }
+
+  .mobile-links a {
+    font-size: 1.5rem;
+  }
+
+  .mobile-links a span {
+    font-size: 0.85rem;
   }
 }

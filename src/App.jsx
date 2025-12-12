@@ -8,8 +8,10 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 function App() {
+  console.log('App component rendering...'); // Debug log
+  
   return (
-    <>
+    <div className="App">
       <Navbar />
       <main>
         <Hero />
@@ -19,7 +21,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

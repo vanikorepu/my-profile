@@ -1,117 +1,218 @@
-/* Projects strip – Patti-style but in your palette */
+/* ===========================
+   Projects Section
+   =========================== */
 
 .projects {
-  padding: 110px 7vw 90px;
+  padding: 96px 6vw 80px;
   background: var(--bg-color);
 }
 
-/* Header */
+/* Center the content to match your hero width */
+.projects-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
 
 .projects-header {
-  text-align: center;
+  text-align: left;
   max-width: 640px;
-  margin: 0 auto 2.8rem;
+  margin: 0 0 2.8rem;
 }
 
 .projects-header h2 {
-  font-size: clamp(2.2rem, 2.8vw + 1.4rem, 3.2rem);
-  letter-spacing: 0.08em;
+  font-size: clamp(2rem, 2.4vw + 1.3rem, 2.8rem);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .projects-underline {
-  width: 90px;
-  height: 4px;
-  margin: 12px auto 18px;
+  width: 80px;
+  height: 3px;
+  margin: 10px 0 16px;
   border-radius: 999px;
   background: var(--accent-color);
 }
 
 .projects-header p {
-  font-family: "Work Sans", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-  font-size: 0.98rem;
-  opacity: 0.85;
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
-/* Row of cards */
+/* ---------- Layout ---------- */
+/* Featured project spans full width, other two sit side-by-side */
 
 .projects-row {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2.4rem;
-  align-items: stretch;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.8rem;
 }
 
-/* Card */
+/* ===== CARD STRUCTURE — NO WRAPPERS ===== */
 
 .project-card {
-  background: #fff7da;
-  border-radius: 24px;
-  padding: 1.4rem 1.6rem 1.6rem;
-  box-shadow: 0 10px 0 rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  gap: 0.6rem;
+  margin-bottom: 4rem; /* breathing room between projects */
 }
 
-/* “Image” / hero strip */
+.project-card--featured {
+  grid-column: 1 / -1;
+  margin-bottom: 5rem;
+}
+
+/* no hover lift */
+.project-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------- Gradient "thumbnail" block ---------- */
 
 .project-thumb {
+  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 18px;
-  padding: 1rem 1.2rem;
-  background: radial-gradient(circle at top left, #f8d6e2, #d6a8ff 50%, #fff5c7);
+  border-radius: 24px;
+  padding: 1.1rem 1.4rem;
+  background: linear-gradient(135deg, #e4d4f4 0%, #ffd4c8 100%); /* lavender → peach */
   text-decoration: none;
   color: var(--ink);
-  margin-bottom: 0.75rem;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Lift the entire card on hover */
+.project-thumb:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.project-thumb--featured {
+  aspect-ratio: 21 / 9;
+}
+
+/* small text label inside gradient */
 .project-thumb-title {
   font-family: "Work Sans", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  z-index: 2;
+  position: relative;
 }
 
+/* emoji fallback (if no image) */
 .project-emoji {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  z-index: 2;
+  position: relative;
 }
 
-/* Meta + text */
+/* FIXED: image fills the entire gradient box */
+.project-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  z-index: 1;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Hover animation for images */
+.project-thumb:hover .project-icon {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Enhance the overlay on hover */
+.project-thumb:hover::before {
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+}
+
+/* Add overlay to ensure text is readable over image */
+.project-thumb::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+  z-index: 1;
+  border-radius: 24px;
+}
+
+/* Make title more visible over images */
+.project-thumb .project-thumb-title,
+.project-thumb .project-emoji {
+  color: white;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+/* Animate title on hover */
+.project-thumb:hover .project-thumb-title {
+  transform: translateY(-4px);
+}
+
+/* ---------- Text styles ---------- */
 
 .project-meta {
   font-family: "Work Sans", system-ui, sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   display: flex;
-  gap: 0.8rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   opacity: 0.7;
 }
 
 .project-title {
-  font-size: 1.15rem;
-  margin-top: 0.15rem;
+  font-size: 1.5rem;
+  margin-top: 0.1rem;
+}
+
+.project-card--featured .project-title {
+  font-size: 1.8rem;
+}
+
+/* italic hook line */
+.project-subtitle {
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-color);
 }
 
 .project-blurb {
   font-family: "Work Sans", system-ui, sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-top: 0.15rem;
+  font-size: 0.96rem;
+  line-height: 1.8;
+  margin-top: 0.25rem;
 }
 
-/* Links */
+/* ---------- Links ---------- */
 
 .project-links {
-  margin-top: auto;
+  margin-top: 1rem;
   font-family: "Work Sans", system-ui, sans-serif;
   font-size: 0.9rem;
 }
@@ -123,33 +224,21 @@
   text-underline-offset: 3px;
 }
 
-/* Hover state */
-
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 0 rgba(0, 0, 0, 0.14);
-  border-color: rgba(0, 0, 0, 0.18);
-}
-
-/* Responsive */
+/* ---------- Responsive ---------- */
 
 @media (max-width: 960px) {
   .projects-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 720px) {
   .projects {
-    padding: 90px 6vw 70px;
-  }
-
-  .projects-row {
-    grid-template-columns: 1fr;
+    padding: 80px 6vw 64px;
   }
 
   .project-card {
-    max-width: 480px;
-    margin: 0 auto;
+    max-width: 520px;
+    margin: 0 auto 3.2rem;
   }
 }
