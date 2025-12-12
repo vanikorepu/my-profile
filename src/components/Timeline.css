@@ -1,176 +1,132 @@
-.tl {
-  max-width: 1000px;
+/* ===== Experience / Rachel-style timeline ===== */
+
+.exp {
+  padding: 96px 6vw 80px;
+  background: var(--bg-color);
+}
+
+.exp__inner {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 6rem 2rem;
 }
 
-.tl > h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: clamp(2rem, 4vw, 2.8rem);
+.exp__header {
+  max-width: 720px;
+  margin: 0 0 2.4rem;
 }
 
-.tl-list {
-  list-style: none;
-  position: relative;
-  padding-left: 24px;
+.exp__header h2 {
+  font-size: clamp(2rem, 2.4vw + 1.3rem, 2.8rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
 }
 
-.tl-item {
-  position: relative;
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 2rem;
-  align-items: start;
-  margin-bottom: 3rem;
-  opacity: 0;
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.tl-item:nth-child(1) { animation-delay: 0.1s; }
-.tl-item:nth-child(2) { animation-delay: 0.2s; }
-.tl-item:nth-child(3) { animation-delay: 0.3s; }
-.tl-item:nth-child(4) { animation-delay: 0.4s; }
-.tl-item:nth-child(5) { animation-delay: 0.5s; }
-
-.tl-spine {
-  position: absolute;
-  left: 28px;
-  top: 0;
-  bottom: -24px;
-  width: 0;
-  border-left: 2px dashed rgba(0, 0, 0, 0.2);
-}
-
-.tl-node {
-  grid-column: 1 / 2;
-  width: 60px;
-  height: 60px;
-  position: relative;
-  display: grid;
-  place-items: center;
-}
-
-.tl-node::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--accent-color);
-  box-shadow: 0 0 0 8px rgba(228, 110, 46, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: block;
-  transition: all 0.3s ease;
-}
-
-.tl-item:hover .tl-node::before {
-  transform: scale(1.2);
-  box-shadow: 0 0 0 12px rgba(228, 110, 46, 0.2), 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.tl-stamp {
-  position: absolute;
-  top: -10px;
-  left: 24px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #fff;
-  background: #1A1A1A;
-  border-radius: 10px;
-  padding: 3px 8px;
-  transform: rotate(-3deg);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-/* tighten vertical spacing between timeline items */
-.tl-item {
-  margin-bottom: 1.6rem; /* reduce from default */
-}
-
-/* reduce node footprint */
-.tl-node {
-  height: 10px;
-  width: 10px;
-  margin: 0;
-}
-
-/* pull card closer to the node */
-.tl-card {
-  margin-top: -0.5rem;
-}
-
-.tl-card {
-  grid-column: 2 / 3;
-  background: transparent;
-  color: var(--ink);
-  border: 2px solid rgba(0, 0, 0, 0.7);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.6);
-  transition: all 0.2s ease;
-}
-
-.tl-card:hover {
-  background: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.5);
-  transform: translateY(-3px);
-}
-
-.tl-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.tl-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: -0.3px;
-}
-
-.tl-title .sep {
-  opacity: 0.5;
-  margin: 0 0.5rem;
-}
-
-.tl-date {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #7b4e16;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 4px 10px;
-  white-space: nowrap;
-}
-
-.tl-blurb {
-  margin: 0;
+.exp__header p {
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-size: 1rem;
   line-height: 1.6;
-  font-size: 0.98rem;
+  opacity: 0.9;
+  margin: 0;
 }
 
-@media (max-width: 640px) {
-  .tl-item {
-    grid-template-columns: 50px 1fr;
-    gap: 1rem;
+/* Timeline container */
+.exp__timeline {
+  position: relative;
+  padding-top: 6px;
+}
+
+/* The single “Rachel dot” anchor */
+.exp__anchorDot {
+  position: absolute;
+  left: 140px; /* aligns near the year column edge */
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent-color);
+}
+
+/* Row layout */
+.exp__row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  column-gap: 36px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.exp__row:first-of-type {
+  border-top: 0;
+  padding-top: 6px;
+}
+
+.exp__year {
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  padding-top: 2px;
+}
+
+.exp__main {
+  min-width: 0;
+}
+
+.exp__org {
+  font-size: 1.02rem;
+  line-height: 1.3;
+  font-weight: 650;
+}
+
+.exp__role {
+  margin-top: 0.18rem;
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-size: 0.98rem;
+  opacity: 0.86;
+}
+
+/* small meta line */
+.exp__sub {
+  margin-top: 0.55rem;
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+/* optional blurb — keep super restrained */
+.exp__blurb {
+  margin: 0.7rem 0 0;
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  opacity: 0.86;
+  max-width: 70ch;
+}
+
+/* Hover: barely-there polish */
+.exp__row:hover .exp__org {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: color-mix(in srgb, var(--accent-color) 70%, transparent);
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .exp__anchorDot {
+    left: 98px;
   }
 
-  .tl-node {
-    width: 50px;
-    height: 50px;
+  .exp__row {
+    grid-template-columns: 80px 1fr;
+    column-gap: 18px;
   }
 
-  .tl-node::before {
-    width: 14px;
-    height: 14px;
-  }
-
-  .tl-stamp {
-    top: -10px;
-    left: 12px;
-    transform: rotate(-4deg);
+  .exp__blurb {
+    font-size: 0.94rem;
   }
 }
