@@ -12,7 +12,7 @@ const ITEMS = [
   {
     title: "Training Lead",
     org: "Gen AI Global - AI 2027",
-    url: "https://www.genaiglobal.org", 
+    url: "https://genglobal.ai", 
     dates: "2025–Present",
     blurb:
       "Translated AI-safety research into agentic workflows, designed training & eval pipelines; aligned technical, policy, and human-factors teams.",
