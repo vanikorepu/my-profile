@@ -57,6 +57,7 @@ export default function Timeline() {
       <div className="exp__inner">
         <header className="exp__header">
           <h2>Experience</h2>
+          <div className="exp-underline"/>
           <p>Product-minded engineering across systems, UX, and outcomes.</p>
         </header>
 
