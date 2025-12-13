@@ -6,16 +6,16 @@ export default function About() {
       <div className="about-container">
         <div className="about-left">
           <h2>
-            I'm a Full Stack Engineer, designer & AI enthusiast - always seeking new adventures.
+            I'm a Full Stack Engineer, Product Designer & AI enthusiast - always seeking new adventures.
           </h2>
         </div>
 
         <div className="about-right">
           <p>
-            I think deeply about people, products, history, accessibility, and the future of technology. Lately, I’ve been working closely with Holdorf Press and TH Forest, building and maintaining publishing sites that support long-form reading and thoughtful structure. In an increasingly digital world, I’m drawn to work that treats storytelling with care - where technology steps back and lets ideas unfold. I’m also happily rabbit-holing into the world of human–AI interaction.
+            I think deeply about people, products, history, and the future of technology. I’ve recently worked with Holdorf Press and TH Forest, building and maintaining publishing sites that support long-form reading and thoughtful structure. I am drawn to work that treats storytelling with care - where technology steps back and lets ideas unfold. I also enjoy rabbit-holing into the world of human–AI interaction.
           </p>
           <p>
-            My background spans research labs, academia, and software teams - from Generative AI research to building digital infrastructure at UMass Amherst Libraries. These days, my work lives somewhere between Figma, Next.js, Tailwind CSS, and film photography.
+            My background spans research labs, academia, and software teams, from Generative AI research to building digital infrastructure at UMass Amherst Libraries. My days live somewhere between brewing coffee, Figma, Next.js, Tailwind CSS, long walks, and film photography.
           </p>
           <p className="location">📍 Based in Massachusetts, USA.</p>
 
@@ -53,19 +53,15 @@ export default function About() {
         </div>
       </div>
 
-      <div className="about-details">
+      {/* <div className="about-details">
         <p className="about-open">
-          Open to Full Time opportunities and collaborations. If you're working on something cool, 
-          <a href="#contact"> let's chat!</a>
+          Open to Full Time opportunities and collaborations. If you're working on something cool, <a href="#contact">let's chat!</a>
         </p>
 
         <div className="about-interests">
           <h3>Outside of engineering, product development, and design, I'm:</h3>
           <ul>
-            <li>exploring how GenAI can cite sources responsibly</li>
-            <li>building RAG systems that actually help people</li>
-            <li>obsessing over WCAG guidelines</li>
-            <li>living in the overlap of design × code × AI</li>
+            <li>building applied AI systems, diving into GenAI and effective RAG architecture.</li>
             <li>writing about tech, media, and connection on{" "}<a href="https://substack.com/@vanikorepu" target="_blank" rel="noopener noreferrer">Substack</a></li>
             <li>brewing the perfect cup of coffee (still a work in progress!)</li>
             <li>hiking the beautiful trails of New England</li>
@@ -82,7 +78,7 @@ export default function About() {
           <a href="mailto:vkorepu.cs@gmail.com">email</a>
             - can't wait to meet you!
         </p>
-      </div>
+      </div> */}
     </section>
   );
 }

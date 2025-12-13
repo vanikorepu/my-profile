@@ -37,15 +37,15 @@
 }
 
 /* The single “Rachel dot” anchor */
-.exp__anchorDot {
+/* .exp__anchorDot {
   position: absolute;
-  left: 140px; /* aligns near the year column edge */
+  left: 140px; 
   top: 8px;
   width: 10px;
   height: 10px;
   border-radius: 999px;
   background: var(--accent-color);
-}
+} */
 
 /* Row layout */
 .exp__row {

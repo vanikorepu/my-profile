@@ -2,8 +2,17 @@ import "./Timeline.css";
 
 const ITEMS = [
   {
+    title: "Web Developer",
+    org: "Holdorf Press, Inc.",
+    url: "https://www.holdorfpress.com", 
+    dates: "2025–Present",
+    blurb:
+      "Updated and maintained Website for 50+ authors, ~30% speed gain via image/caching, improved UX and rankings.",
+  },
+  {
     title: "Training Lead",
     org: "Gen AI Global - AI 2027",
+    url: "https://www.genaiglobal.org", 
     dates: "2025–Present",
     blurb:
       "Translated AI-safety research into agentic workflows, designed training & eval pipelines; aligned technical, policy, and human-factors teams.",
@@ -11,6 +20,7 @@ const ITEMS = [
   {
     title: "Software Engineer",
     org: "UMass Libraries – Digital Media Lab",
+    url: "https://www.library.umass.edu/dml", 
     dates: "2022–2025",
     blurb:
       "Rebuilt the lab site, tripled student traffic, 500+ sign-ups, +25% mobile a11y; added SEO + analytics for outreach decisions.",
@@ -18,6 +28,7 @@ const ITEMS = [
   {
     title: "Frontend Developer",
     org: "Kanor Systems",
+    url: "https://www.kanorsystems.com", 
     dates: "2021–2022",
     blurb:
       "Cut registration time 15% across 2,500+ users, Looker dashboards, extended Zoho CRM to track 500+ accounts.",
@@ -25,16 +36,10 @@ const ITEMS = [
   {
     title: "Software Developer",
     org: "Havish Tech",
+    url: "https://www.havishtech.co", 
     dates: "2020–2021",
     blurb:
       "Redesigned React storefronts, −18% cart abandonment, +22% session time, CTA/checkout A/B tests lifted conversions 15%.",
-  },
-  {
-    title: "Web Developer",
-    org: "Holdorf Press, Inc.",
-    dates: "2025–Present",
-    blurb:
-      "Optimized WordPress for 50+ authors, ~30% speed gain via image/caching, improved UX and rankings.",
   },
 ];
 
@@ -63,7 +68,19 @@ export default function Timeline() {
               <div className="exp__year">{getYearLabel(item.dates)}</div>
 
               <div className="exp__main">
-                <div className="exp__org">{item.org}</div>
+                {/* UPDATED: Wrapped the organization name in an <a> tag.
+                  - href={item.url}: Uses the URL from the ITEMS array.
+                  - target="_blank" rel="noopener noreferrer": Ensures the link opens in a new tab securely.
+                */}
+                <a 
+                  href={item.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="exp__orgLink" // Added a class for targeted CSS styling
+                >
+                  <div className="exp__org">{item.org}</div>
+                </a>
+                
                 <div className="exp__role">{item.title}</div>
 
                 {/* optional: keep this if you want a tiny subline like a “resume whisper” */}
