@@ -13,7 +13,7 @@ export default function Footer() {
     <footer className="site-footer" role="contentinfo">
       <div className="footer-inner">
         <p className="footer-tagline">
-          © 2025 Vani Korepu — Made with <span aria-hidden="true">❤️</span> and caffeine{" "}
+          © 2025 Vani Korepu - Made with <span aria-hidden="true">❤️</span> and caffeine{" "}
           <span aria-hidden="true">☕</span>
         </p>
 
