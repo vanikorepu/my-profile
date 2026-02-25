@@ -102,9 +102,19 @@ export default function Contact() {
             </div>
           </div>
 
-          <button type="submit" className="outline-btn">
-            SEND MESSAGE
-          </button>
+          <div className="contact-btn-row">
+            <button type="submit" className="outline-btn">
+              SEND MESSAGE
+            </button>
+            <a
+              href="https://calendly.com/vanikorepu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="outline-btn"
+            >
+              BOOK A CALL
+            </a>
+          </div>
           
           {status && (
             <div className="status-message">
