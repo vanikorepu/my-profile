@@ -17,6 +17,10 @@ export default function Footer() {
           <span aria-hidden="true">☕</span>
         </p>
 
+        <p className="footer-tagline-mobile">
+          Made with <span aria-hidden="true">❤️</span> and <span aria-hidden="true">☕</span> by Vani
+        </p>
+
         <nav className="footer-links" aria-label="Footer links">
           {links.map((link) => (
             <a

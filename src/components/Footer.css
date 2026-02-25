@@ -54,6 +54,10 @@
   }
 }
 
+.footer-tagline-mobile {
+  display: none;
+}
+
 /* Mobile: Rachel-style stack + vertical links */
 @media (max-width: 640px) {
   .site-footer {
@@ -62,8 +66,23 @@
 
   .footer-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 1.25rem;
+  }
+
+  .footer-tagline {
+    display: none;
+  }
+
+  .footer-tagline-mobile {
+    display: block;
+    text-align: center;
+    margin: 0;
+    font-family: inherit;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    opacity: 0.75;
+    text-transform: uppercase;
   }
 
   .footer-links {
