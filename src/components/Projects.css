@@ -186,6 +186,18 @@
   .projects-row {
     grid-template-columns: 1fr;
   }
+
+  .project-card {
+    max-width: 640px;
+    margin-bottom: 0;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .project-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 }
 
 @media (max-width: 720px) {

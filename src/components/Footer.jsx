@@ -1,10 +1,12 @@
+import { Linkedin, Github, Mail, CalendarDays } from "lucide-react";
 import "./Footer.css";
 
 export default function Footer() {
   const links = [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/vanikorepu" },
-    { label: "Email", href: "mailto:vkorepu.cs@gmail.com" },
-    { label: "GitHub", href: "https://github.com/vanikorepu" },
+    { icon: <Linkedin size={18} />, label: "LinkedIn", href: "https://www.linkedin.com/in/vanikorepu" },
+    { icon: <Github size={18} />, label: "GitHub", href: "https://github.com/vanikorepu" },
+    { icon: <Mail size={18} />, label: "Email", href: "mailto:vkorepu.cs@gmail.com" },
+    { icon: <CalendarDays size={18} />, label: "Book a call", href: "https://calendly.com/vanikorepu" },
   ];
 
   return (
@@ -22,8 +24,10 @@ export default function Footer() {
               href={link.href}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              aria-label={link.label}
+              title={link.label}
             >
-              {link.label}
+              {link.icon}
             </a>
           ))}
         </nav>

@@ -12,21 +12,19 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      {
-        root: null,
-        rootMargin: "-60px 0px -40% 0px",
-        threshold: [0.5, 0.75],
+    const updateActive = () => {
+      const sections = [...document.querySelectorAll("section[id]")];
+      let current = "hero";
+      for (const section of sections) {
+        if (window.scrollY >= section.offsetTop - 80) {
+          current = section.id;
+        }
       }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => sections.forEach((s) => observer.unobserve(s));
+      setActive(current);
+    };
+    updateActive();
+    window.addEventListener("scroll", updateActive, { passive: true });
+    return () => window.removeEventListener("scroll", updateActive);
   }, []);
 
   useEffect(() => {
@@ -74,13 +72,16 @@ export default function Navbar() {
 
       {isMobileMenuOpen && (
         <div className="mobile-overlay">
-          <button className="close-btn" onClick={() => setIsMobileMenuOpen(false)}>✕</button>
+          <div className="mobile-overlay-top">
+            <h2 className="mobile-logo">Vani Korepu</h2>
+            <button className="close-btn" onClick={() => setIsMobileMenuOpen(false)}>✕</button>
+          </div>
           <div className="mobile-links">
-            <a className={active === "hero" ? "active" : ""} onClick={() => go("#hero")}><span>1</span> HOME</a>
-            <a className={active === "about" ? "active" : ""} onClick={() => go("#about")}><span>2</span> ABOUT</a>
-            <a className={active === "experience" ? "active" : ""} onClick={() => go("#experience")}><span>3</span> EXPERIENCE</a>
-            <a className={active === "projects" ? "active" : ""} onClick={() => go("#projects")}><span>4</span> PROJECTS</a>
-            <a className={active === "contact" ? "active" : ""} onClick={() => go("#contact")}><span>5</span> CONTACT</a>
+            <a className={active === "hero" ? "active" : ""} onClick={() => go("#hero")}>Home</a>
+            <a className={active === "about" ? "active" : ""} onClick={() => go("#about")}>About</a>
+            <a className={active === "experience" ? "active" : ""} onClick={() => go("#experience")}>Experience</a>
+            <a className={active === "projects" ? "active" : ""} onClick={() => go("#projects")}>Projects</a>
+            <a className={active === "contact" ? "active" : ""} onClick={() => go("#contact")}>Contact</a>
           </div>
         </div>
       )}
