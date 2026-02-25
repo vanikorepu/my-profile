@@ -8,10 +8,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
-  }, [isMobileMenuOpen]);
-
-  useEffect(() => {
     const updateActive = () => {
       const sections = [...document.querySelectorAll("section[id]")];
       let current = "hero";
@@ -34,17 +30,30 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close mobile menu on scroll or click outside
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const close = () => setIsMobileMenuOpen(false);
+    window.addEventListener("scroll", close, { passive: true, once: true });
+    const handleClickOutside = (e) => {
+      if (!e.target.closest(".navbar")) setIsMobileMenuOpen(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      window.removeEventListener("scroll", close);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
+
   const go = (hash) => {
     setIsMobileMenuOpen(false);
-    requestAnimationFrame(() => {
-      location.hash = hash;
-    });
+    requestAnimationFrame(() => { location.hash = hash; });
   };
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-left">
-        <h2>Vani Korepu</h2>
+        <a href="#hero" className="navbar-name">Vani Korepu</a>
       </div>
 
       <div className="navbar-center">
@@ -56,35 +65,34 @@ export default function Navbar() {
       </div>
 
       <div className="navbar-right">
-        <a href="https://www.linkedin.com/in/vanikorepu" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/vanikorepu" target="_blank" rel="noopener noreferrer" className="nav-icon">
           <Linkedin size={20} />
         </a>
-        <a href="https://github.com/vanikorepu" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/vanikorepu" target="_blank" rel="noopener noreferrer" className="nav-icon">
           <Github size={20} />
         </a>
-        <a href="mailto:vanikorepu@gmail.com">
+        <a href="mailto:vanikorepu@gmail.com" className="nav-icon">
           <Mail size={20} />
         </a>
-        <div className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </div>
+        <button
+          className="hamburger"
+          onClick={() => setIsMobileMenuOpen(prev => !prev)}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMobileMenuOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+        </button>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="mobile-overlay">
-          <div className="mobile-overlay-top">
-            <h2 className="mobile-logo">Vani Korepu</h2>
-            <button className="close-btn" onClick={() => setIsMobileMenuOpen(false)}>✕</button>
-          </div>
-          <div className="mobile-links">
-            <a className={active === "hero" ? "active" : ""} onClick={() => go("#hero")}>Home</a>
-            <a className={active === "about" ? "active" : ""} onClick={() => go("#about")}>About</a>
-            <a className={active === "experience" ? "active" : ""} onClick={() => go("#experience")}>Experience</a>
-            <a className={active === "projects" ? "active" : ""} onClick={() => go("#projects")}>Projects</a>
-            <a className={active === "contact" ? "active" : ""} onClick={() => go("#contact")}>Contact</a>
-          </div>
-        </div>
-      )}
+      {/* Mobile slide-down dropdown */}
+      <div className={`mobile-dropdown ${isMobileMenuOpen ? "open" : ""}`}>
+        <nav className="mobile-nav-links">
+          <a className={active === "hero" ? "active" : ""} onClick={() => go("#hero")}>Home</a>
+          <a className={active === "about" ? "active" : ""} onClick={() => go("#about")}>About</a>
+          <a className={active === "experience" ? "active" : ""} onClick={() => go("#experience")}>Experience</a>
+          <a className={active === "projects" ? "active" : ""} onClick={() => go("#projects")}>Projects</a>
+          <a className={active === "contact" ? "active" : ""} onClick={() => go("#contact")}>Contact</a>
+        </nav>
+      </div>
     </nav>
   );
 }
