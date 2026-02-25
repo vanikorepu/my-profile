@@ -146,6 +146,7 @@
 .outline-btn {
   margin: 3rem auto 0;
   display: block;
+  text-align: center;
   text-decoration: none;
   font-family: "Work Sans", system-ui, sans-serif;
   font-weight: 600;
