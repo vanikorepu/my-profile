@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+
+  <!-- Lavender background -->
+  <rect x="0" y="0" width="400" height="400" rx="64" fill="#EBBFFF"/>
+
+  <!-- Everything drawn in dark (near-black) as silhouette like the reference -->
+  <!-- Reference: cream/white shapes on dark blue. We do: dark shapes on lavender -->
+
+  <g fill="#1a1a1a">
+
+    <!-- ══ MAC MONITOR OUTER BODY ══ -->
+    <rect x="52"  y="40"  width="296" height="226" rx="16"/>
+
+    <!-- ══ SCREEN CUTOUT (lavender showing through) ══ -->
+    <rect x="76"  y="62"  width="248" height="180" rx="6" fill="#EBBFFF"/>
+
+    <!-- ══ MONITOR STAND / NECK ══ -->
+    <rect x="168" y="266" width="64"  height="36"/>
+
+    <!-- ══ BASE ══ -->
+    <rect x="110" y="302" width="180" height="28" rx="6"/>
+
+  </g>
+
+  <!-- ══ MOTH silhouette — cream/white inside screen ══ -->
+  <g fill="#1a1a1a" transform="translate(200, 152)">
+
+    <!-- ANTENNAE -->
+    <rect x="-10" y="-82" width="10" height="10"/>
+    <rect x="-20" y="-72" width="10" height="10"/>
+    <rect x="-28" y="-64" width="10" height="10"/>
+    <rect x="0"   y="-82" width="10" height="10"/>
+    <rect x="10"  y="-72" width="10" height="10"/>
+    <rect x="18"  y="-64" width="10" height="10"/>
+
+    <!-- HEAD -->
+    <rect x="-10" y="-64" width="20" height="10"/>
+    <rect x="-12" y="-54" width="24" height="10"/>
+
+    <!-- BODY -->
+    <rect x="-10" y="-44" width="20" height="10"/>
+    <rect x="-10" y="-34" width="20" height="10"/>
+    <rect x="-10" y="-24" width="20" height="10"/>
+    <rect x="-10" y="-14" width="20" height="10"/>
+    <rect x="-10" y="-4"  width="20" height="10"/>
+    <rect x="-10" y="6"   width="20" height="10"/>
+    <rect x="-8"  y="16"  width="16" height="10"/>
+    <rect x="-6"  y="26"  width="12" height="8"/>
+
+    <!-- LEFT UPPER WING — large, spread wide -->
+    <rect x="-100" y="-44" width="90"  height="10"/>
+    <rect x="-100" y="-34" width="90"  height="10"/>
+    <rect x="-90"  y="-24" width="80"  height="10"/>
+    <rect x="-78"  y="-14" width="68"  height="10"/>
+    <rect x="-64"  y="-4"  width="54"  height="10"/>
+    <rect x="-48"  y="6"   width="38"  height="10"/>
+    <rect x="-32"  y="16"  width="22"  height="10"/>
+    <!-- Wing notch -->
+    <rect x="-88"  y="-34" width="30"  height="20" fill="#EBBFFF"/>
+
+    <!-- RIGHT UPPER WING -->
+    <rect x="10"   y="-44" width="90"  height="10"/>
+    <rect x="10"   y="-34" width="90"  height="10"/>
+    <rect x="10"   y="-24" width="80"  height="10"/>
+    <rect x="10"   y="-14" width="68"  height="10"/>
+    <rect x="10"   y="-4"  width="54"  height="10"/>
+    <rect x="10"   y="6"   width="38"  height="10"/>
+    <rect x="10"   y="16"  width="22"  height="10"/>
+    <!-- Wing notch -->
+    <rect x="58"   y="-34" width="30"  height="20" fill="#EBBFFF"/>
+
+    <!-- LEFT LOWER WING -->
+    <rect x="-56"  y="26"  width="46"  height="10"/>
+    <rect x="-46"  y="36"  width="36"  height="10"/>
+    <rect x="-34"  y="46"  width="24"  height="10"/>
+    <rect x="-22"  y="56"  width="12"  height="8"/>
+
+    <!-- RIGHT LOWER WING -->
+    <rect x="10"   y="26"  width="46"  height="10"/>
+    <rect x="10"   y="36"  width="36"  height="10"/>
+    <rect x="10"   y="46"  width="24"  height="10"/>
+    <rect x="10"   y="56"  width="12"  height="8"/>
+
+  </g>
+
+</svg>
