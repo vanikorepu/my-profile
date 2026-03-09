@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Linkedin, Github, Mail, Menu, X } from "lucide-react";
+import mothMacLogo from "../assets/moth-mac-logo.svg";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -53,7 +54,9 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-left">
-        <a href="#hero" className="navbar-name">Vani Korepu</a>
+        <a href="#hero" className="navbar-name">
+          <img src={mothMacLogo} alt="logo" className="navbar-logo" />Vani Korepu
+        </a>
       </div>
 
       <div className="navbar-center">
